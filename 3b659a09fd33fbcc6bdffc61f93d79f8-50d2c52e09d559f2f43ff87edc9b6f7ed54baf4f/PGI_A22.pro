@@ -1,11 +1,10 @@
-# Created by and for Qt Creator This file was created for editing the project sources only.
-# You may attempt to use it for building too, by modifying this file here.
 
-#TARGET = PGI_A22
+TEMPLATE = app
+CONFIG += console c++11
+CONFIG -= app_bundle
+CONFIG -= qt
 
-QT = core gui widgets
-
-HEADERS = \
+HEADERS += \
    $$PWD/bestellsystem.h \
    $$PWD/bestellung.h \
    $$PWD/katalog.h \
@@ -19,9 +18,4 @@ SOURCES = \
    $$PWD/kunde.cpp \
    $$PWD/main.cpp \
    $$PWD/produkt.cpp
-
-INCLUDEPATH = \
-    $$PWD/.
-
-#DEFINES = 
 
