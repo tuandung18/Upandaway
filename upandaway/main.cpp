@@ -5,7 +5,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    travelAgencyUI t;
-    t.show();
+    TravelAgency* travelAgency;
+    travelAgencyUI travelAgencyUI;
+    travelAgencyUI.setTravelAgency(travelAgency);
+    travelAgencyUI.show();
     return a.exec();
 }

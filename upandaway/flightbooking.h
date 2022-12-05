@@ -19,7 +19,13 @@ public:
 
     // Booking interface
     public:
-        std::vector<string> getDetails() override;
+    std::vector<string> getDetails() override;
+    string getFromDestination() const;
+    void setFromDestination(const string &newFromDestination) override;
+    string getToDestination() const;
+    void setToDestination(const string &newToDestination) override;
+    string getAirline() const;
+    void setAirline(const string &newAirline) override;
 };
 
 #endif // FLIGHTBOOKING_H

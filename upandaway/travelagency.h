@@ -14,6 +14,7 @@ public:
     void readBinaryFile(string sourceName);
     const vector<Booking *> &getBookings() const;
     void setBookings(const vector<Booking *> &newBookings);
+    string readFile2(string sourceName);
 };
 
 #endif // TRAVELAGENCY_H

@@ -1,5 +1,35 @@
 #include "rentalcarreservation.h"
 
+string RentalCarReservation::getPickupLocation() const
+{
+    return pickupLocation;
+}
+
+void RentalCarReservation::setPickupLocation(const string &newPickupLocation)
+{
+    pickupLocation = newPickupLocation;
+}
+
+string RentalCarReservation::getReturnLocation() const
+{
+    return returnLocation;
+}
+
+void RentalCarReservation::setReturnLocation(const string &newReturnLocation)
+{
+    returnLocation = newReturnLocation;
+}
+
+string RentalCarReservation::getCompany() const
+{
+    return company;
+}
+
+void RentalCarReservation::setCompany(const string &newCompany)
+{
+    company = newCompany;
+}
+
 RentalCarReservation::RentalCarReservation()
 {
 
@@ -16,6 +46,9 @@ string RentalCarReservation::showDetails()
 std::vector<string> RentalCarReservation::getDetails()
 {
     vector<string> result;
+    result.push_back(to_string(id));
+    result.push_back(fromDate);
+    result.push_back(toDate);
     result.push_back(pickupLocation);
     result.push_back(returnLocation);
     result.push_back(company);

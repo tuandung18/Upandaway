@@ -16,6 +16,12 @@ public:
     string showDetails() override;
     std::vector<string> getDetails() override;
 
+    string getPickupLocation() const;
+    void setPickupLocation(const string &newPickupLocation) override;
+    string getReturnLocation() const;
+    void setReturnLocation(const string &newReturnLocation) override;
+    string getCompany() const;
+    void setCompany(const string &newCompany) override;
 };
 
 #endif // RENTALCARRESERVATION_H

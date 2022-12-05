@@ -15,6 +15,10 @@ public:
     string showDetails() override;
     std::vector<string> getDetails() override;
 
+    string getHotel() const;
+    void setHotel(const string &newHotel) override;
+    string getTown() const;
+    void setTown(const string &newTown) override;
 };
 
 #endif // HOTELBOOKING_H

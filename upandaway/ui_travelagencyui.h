@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'travelagencyui.ui'
 **
-** Created by: Qt User Interface Compiler version 6.2.2
+** Created by: Qt User Interface Compiler version 6.4.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -12,17 +12,16 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLabel>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -32,407 +31,271 @@ class Ui_travelAgencyUI
 {
 public:
     QWidget *centralwidget;
-    QTabWidget *Information;
-    QWidget *Flugbuchung;
-    QGroupBox *groupBox_7;
-    QVBoxLayout *verticalLayout_3;
-    QVBoxLayout *verticalLayout_15;
-    QLineEdit *FID;
-    QLineEdit *FSDate;
-    QLineEdit *FEDate;
-    QLineEdit *FSFlughafen;
-    QLineEdit *FEFlugafen;
-    QLineEdit *FCompany;
-    QLineEdit *FPrice;
-    QWidget *layoutWidget_3;
-    QVBoxLayout *verticalLayout_14;
-    QLabel *label_15;
-    QLabel *label_16;
-    QLabel *label_17;
-    QLabel *label_18;
-    QLabel *label_19;
-    QLabel *label_20;
-    QLabel *label_21;
-    QWidget *HotelBuchung;
-    QGroupBox *groupBox_2;
-    QVBoxLayout *verticalLayout_5;
-    QVBoxLayout *verticalLayout_4;
-    QLineEdit *HID;
-    QLineEdit *HSDate;
-    QLineEdit *HEDate;
-    QLineEdit *HHotel;
-    QLineEdit *HStadt;
-    QLineEdit *HPrice;
-    QWidget *layoutWidget_5;
-    QVBoxLayout *verticalLayout_16;
-    QLabel *label_22;
-    QLabel *label_23;
-    QLabel *label_24;
-    QLabel *label_25;
-    QLabel *label_26;
-    QLabel *label_27;
-    QWidget *AutoBuchung;
-    QGroupBox *groupBox_4;
-    QVBoxLayout *verticalLayout_2;
-    QVBoxLayout *verticalLayout_7;
-    QLineEdit *AID;
-    QLineEdit *ASDate;
-    QLineEdit *AEDate;
-    QLineEdit *ASStation;
-    QLineEdit *AEStation;
-    QLineEdit *ACompany;
-    QLineEdit *APrice;
     QWidget *layoutWidget;
-    QVBoxLayout *verticalLayout_8;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_7;
-    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QPushButton *readFile;
-    QPushButton *showBooking;
-    QPushButton *showAllBooking;
-    QPushButton *saveData;
-    QWidget *layoutWidget2;
+    QPushButton *Customer;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_3;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_4;
-    QListWidget *bookings;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QHBoxLayout *horizontalLayout;
+    QTableWidget *tableWidget_3;
+    QWidget *tab_2;
+    QVBoxLayout *verticalLayout_3;
+    QTableWidget *tableWidget_4;
+    QPushButton *pushButton;
+    QWidget *layoutWidget3;
+    QHBoxLayout *horizontalLayout_6;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
+    QWidget *layoutWidget4;
+    QVBoxLayout *verticalLayout_4;
+    QLineEdit *customerName;
+    QTableWidget *tableWidget;
+    QWidget *layoutWidget5;
+    QVBoxLayout *verticalLayout_5;
+    QLineEdit *travelID;
+    QTableWidget *tableWidget_2;
+    QWidget *layoutWidget6;
+    QHBoxLayout *horizontalLayout_5;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_5;
     QMenuBar *menubar;
     QMenu *menuUp_and_away;
+    QMenu *menuCustomers;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *travelAgencyUI)
     {
         if (travelAgencyUI->objectName().isEmpty())
-            travelAgencyUI->setObjectName(QString::fromUtf8("travelAgencyUI"));
-        travelAgencyUI->resize(736, 576);
+            travelAgencyUI->setObjectName("travelAgencyUI");
+        travelAgencyUI->resize(960, 825);
         centralwidget = new QWidget(travelAgencyUI);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        Information = new QTabWidget(centralwidget);
-        Information->setObjectName(QString::fromUtf8("Information"));
-        Information->setGeometry(QRect(310, 30, 321, 301));
-        Information->setTabShape(QTabWidget::Rounded);
-        Flugbuchung = new QWidget();
-        Flugbuchung->setObjectName(QString::fromUtf8("Flugbuchung"));
-        groupBox_7 = new QGroupBox(Flugbuchung);
-        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
-        groupBox_7->setGeometry(QRect(140, 10, 151, 249));
-        verticalLayout_3 = new QVBoxLayout(groupBox_7);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_15 = new QVBoxLayout();
-        verticalLayout_15->setObjectName(QString::fromUtf8("verticalLayout_15"));
-        FID = new QLineEdit(groupBox_7);
-        FID->setObjectName(QString::fromUtf8("FID"));
-
-        verticalLayout_15->addWidget(FID);
-
-        FSDate = new QLineEdit(groupBox_7);
-        FSDate->setObjectName(QString::fromUtf8("FSDate"));
-
-        verticalLayout_15->addWidget(FSDate);
-
-        FEDate = new QLineEdit(groupBox_7);
-        FEDate->setObjectName(QString::fromUtf8("FEDate"));
-
-        verticalLayout_15->addWidget(FEDate);
-
-        FSFlughafen = new QLineEdit(groupBox_7);
-        FSFlughafen->setObjectName(QString::fromUtf8("FSFlughafen"));
-
-        verticalLayout_15->addWidget(FSFlughafen);
-
-        FEFlugafen = new QLineEdit(groupBox_7);
-        FEFlugafen->setObjectName(QString::fromUtf8("FEFlugafen"));
-
-        verticalLayout_15->addWidget(FEFlugafen);
-
-        FCompany = new QLineEdit(groupBox_7);
-        FCompany->setObjectName(QString::fromUtf8("FCompany"));
-
-        verticalLayout_15->addWidget(FCompany);
-
-        FPrice = new QLineEdit(groupBox_7);
-        FPrice->setObjectName(QString::fromUtf8("FPrice"));
-
-        verticalLayout_15->addWidget(FPrice);
-
-
-        verticalLayout_3->addLayout(verticalLayout_15);
-
-        layoutWidget_3 = new QWidget(Flugbuchung);
-        layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(30, 40, 87, 201));
-        verticalLayout_14 = new QVBoxLayout(layoutWidget_3);
-        verticalLayout_14->setObjectName(QString::fromUtf8("verticalLayout_14"));
-        verticalLayout_14->setContentsMargins(0, 0, 0, 0);
-        label_15 = new QLabel(layoutWidget_3);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-
-        verticalLayout_14->addWidget(label_15);
-
-        label_16 = new QLabel(layoutWidget_3);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-
-        verticalLayout_14->addWidget(label_16);
-
-        label_17 = new QLabel(layoutWidget_3);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
-
-        verticalLayout_14->addWidget(label_17);
-
-        label_18 = new QLabel(layoutWidget_3);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
-
-        verticalLayout_14->addWidget(label_18);
-
-        label_19 = new QLabel(layoutWidget_3);
-        label_19->setObjectName(QString::fromUtf8("label_19"));
-
-        verticalLayout_14->addWidget(label_19);
-
-        label_20 = new QLabel(layoutWidget_3);
-        label_20->setObjectName(QString::fromUtf8("label_20"));
-
-        verticalLayout_14->addWidget(label_20);
-
-        label_21 = new QLabel(layoutWidget_3);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
-
-        verticalLayout_14->addWidget(label_21);
-
-        Information->addTab(Flugbuchung, QString());
-        HotelBuchung = new QWidget();
-        HotelBuchung->setObjectName(QString::fromUtf8("HotelBuchung"));
-        groupBox_2 = new QGroupBox(HotelBuchung);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(100, 10, 161, 241));
-        verticalLayout_5 = new QVBoxLayout(groupBox_2);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        HID = new QLineEdit(groupBox_2);
-        HID->setObjectName(QString::fromUtf8("HID"));
-
-        verticalLayout_4->addWidget(HID);
-
-        HSDate = new QLineEdit(groupBox_2);
-        HSDate->setObjectName(QString::fromUtf8("HSDate"));
-
-        verticalLayout_4->addWidget(HSDate);
-
-        HEDate = new QLineEdit(groupBox_2);
-        HEDate->setObjectName(QString::fromUtf8("HEDate"));
-
-        verticalLayout_4->addWidget(HEDate);
-
-        HHotel = new QLineEdit(groupBox_2);
-        HHotel->setObjectName(QString::fromUtf8("HHotel"));
-
-        verticalLayout_4->addWidget(HHotel);
-
-        HStadt = new QLineEdit(groupBox_2);
-        HStadt->setObjectName(QString::fromUtf8("HStadt"));
-
-        verticalLayout_4->addWidget(HStadt);
-
-        HPrice = new QLineEdit(groupBox_2);
-        HPrice->setObjectName(QString::fromUtf8("HPrice"));
-
-        verticalLayout_4->addWidget(HPrice);
-
-
-        verticalLayout_5->addLayout(verticalLayout_4);
-
-        layoutWidget_5 = new QWidget(HotelBuchung);
-        layoutWidget_5->setObjectName(QString::fromUtf8("layoutWidget_5"));
-        layoutWidget_5->setGeometry(QRect(20, 40, 71, 191));
-        verticalLayout_16 = new QVBoxLayout(layoutWidget_5);
-        verticalLayout_16->setObjectName(QString::fromUtf8("verticalLayout_16"));
-        verticalLayout_16->setContentsMargins(0, 0, 0, 0);
-        label_22 = new QLabel(layoutWidget_5);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
-
-        verticalLayout_16->addWidget(label_22);
-
-        label_23 = new QLabel(layoutWidget_5);
-        label_23->setObjectName(QString::fromUtf8("label_23"));
-
-        verticalLayout_16->addWidget(label_23);
-
-        label_24 = new QLabel(layoutWidget_5);
-        label_24->setObjectName(QString::fromUtf8("label_24"));
-
-        verticalLayout_16->addWidget(label_24);
-
-        label_25 = new QLabel(layoutWidget_5);
-        label_25->setObjectName(QString::fromUtf8("label_25"));
-
-        verticalLayout_16->addWidget(label_25);
-
-        label_26 = new QLabel(layoutWidget_5);
-        label_26->setObjectName(QString::fromUtf8("label_26"));
-
-        verticalLayout_16->addWidget(label_26);
-
-        label_27 = new QLabel(layoutWidget_5);
-        label_27->setObjectName(QString::fromUtf8("label_27"));
-
-        verticalLayout_16->addWidget(label_27);
-
-        Information->addTab(HotelBuchung, QString());
-        AutoBuchung = new QWidget();
-        AutoBuchung->setObjectName(QString::fromUtf8("AutoBuchung"));
-        groupBox_4 = new QGroupBox(AutoBuchung);
-        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(140, 10, 151, 249));
-        verticalLayout_2 = new QVBoxLayout(groupBox_4);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        AID = new QLineEdit(groupBox_4);
-        AID->setObjectName(QString::fromUtf8("AID"));
-
-        verticalLayout_7->addWidget(AID);
-
-        ASDate = new QLineEdit(groupBox_4);
-        ASDate->setObjectName(QString::fromUtf8("ASDate"));
-
-        verticalLayout_7->addWidget(ASDate);
-
-        AEDate = new QLineEdit(groupBox_4);
-        AEDate->setObjectName(QString::fromUtf8("AEDate"));
-
-        verticalLayout_7->addWidget(AEDate);
-
-        ASStation = new QLineEdit(groupBox_4);
-        ASStation->setObjectName(QString::fromUtf8("ASStation"));
-
-        verticalLayout_7->addWidget(ASStation);
-
-        AEStation = new QLineEdit(groupBox_4);
-        AEStation->setObjectName(QString::fromUtf8("AEStation"));
-
-        verticalLayout_7->addWidget(AEStation);
-
-        ACompany = new QLineEdit(groupBox_4);
-        ACompany->setObjectName(QString::fromUtf8("ACompany"));
-
-        verticalLayout_7->addWidget(ACompany);
-
-        APrice = new QLineEdit(groupBox_4);
-        APrice->setObjectName(QString::fromUtf8("APrice"));
-
-        verticalLayout_7->addWidget(APrice);
-
-
-        verticalLayout_2->addLayout(verticalLayout_7);
-
-        layoutWidget = new QWidget(AutoBuchung);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(30, 40, 71, 201));
-        verticalLayout_8 = new QVBoxLayout(layoutWidget);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(layoutWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        verticalLayout_8->addWidget(label);
-
-        label_2 = new QLabel(layoutWidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        verticalLayout_8->addWidget(label_2);
-
-        label_3 = new QLabel(layoutWidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        verticalLayout_8->addWidget(label_3);
-
-        label_4 = new QLabel(layoutWidget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        verticalLayout_8->addWidget(label_4);
-
-        label_5 = new QLabel(layoutWidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        verticalLayout_8->addWidget(label_5);
-
-        label_6 = new QLabel(layoutWidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-
-        verticalLayout_8->addWidget(label_6);
-
-        label_7 = new QLabel(layoutWidget);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-
-        verticalLayout_8->addWidget(label_7);
-
-        Information->addTab(AutoBuchung, QString());
-        layoutWidget1 = new QWidget(centralwidget);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(100, 70, 129, 116));
-        verticalLayout = new QVBoxLayout(layoutWidget1);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        centralwidget->setObjectName("centralwidget");
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(10, 60, 168, 218));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        readFile = new QPushButton(layoutWidget1);
-        readFile->setObjectName(QString::fromUtf8("readFile"));
+        readFile = new QPushButton(layoutWidget);
+        readFile->setObjectName("readFile");
         readFile->setLayoutDirection(Qt::LeftToRight);
         readFile->setIconSize(QSize(16, 16));
 
         verticalLayout->addWidget(readFile);
 
-        showBooking = new QPushButton(layoutWidget1);
-        showBooking->setObjectName(QString::fromUtf8("showBooking"));
+        Customer = new QPushButton(layoutWidget);
+        Customer->setObjectName("Customer");
 
-        verticalLayout->addWidget(showBooking);
+        verticalLayout->addWidget(Customer);
 
-        showAllBooking = new QPushButton(layoutWidget1);
-        showAllBooking->setObjectName(QString::fromUtf8("showAllBooking"));
-
-        verticalLayout->addWidget(showAllBooking);
-
-        saveData = new QPushButton(layoutWidget1);
-        saveData->setObjectName(QString::fromUtf8("saveData"));
-
-        verticalLayout->addWidget(saveData);
-
-        layoutWidget2 = new QWidget(centralwidget);
-        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(0, 0, 2, 2));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget2);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        layoutWidget1 = new QWidget(centralwidget);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(0, 0, 2, 2));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget1);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        layoutWidget3 = new QWidget(centralwidget);
-        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(0, 0, 2, 2));
-        horizontalLayout_4 = new QHBoxLayout(layoutWidget3);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(0, 0, 2, 2));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget2);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        bookings = new QListWidget(centralwidget);
-        bookings->setObjectName(QString::fromUtf8("bookings"));
-        bookings->setGeometry(QRect(70, 340, 591, 192));
+        tabWidget = new QTabWidget(centralwidget);
+        tabWidget->setObjectName("tabWidget");
+        tabWidget->setGeometry(QRect(400, 340, 286, 264));
+        tab = new QWidget();
+        tab->setObjectName("tab");
+        horizontalLayout = new QHBoxLayout(tab);
+        horizontalLayout->setObjectName("horizontalLayout");
+        tableWidget_3 = new QTableWidget(tab);
+        if (tableWidget_3->columnCount() < 1)
+            tableWidget_3->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        tableWidget_3->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        if (tableWidget_3->rowCount() < 7)
+            tableWidget_3->setRowCount(7);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(0, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(1, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(2, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(3, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(4, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(5, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tableWidget_3->setVerticalHeaderItem(6, __qtablewidgetitem7);
+        tableWidget_3->setObjectName("tableWidget_3");
+
+        horizontalLayout->addWidget(tableWidget_3);
+
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName("tab_2");
+        verticalLayout_3 = new QVBoxLayout(tab_2);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        tableWidget_4 = new QTableWidget(tab_2);
+        if (tableWidget_4->columnCount() < 1)
+            tableWidget_4->setColumnCount(1);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem8);
+        if (tableWidget_4->rowCount() < 6)
+            tableWidget_4->setRowCount(6);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(0, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(1, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(2, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(3, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(4, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(5, __qtablewidgetitem14);
+        tableWidget_4->setObjectName("tableWidget_4");
+
+        verticalLayout_3->addWidget(tableWidget_4);
+
+        tabWidget->addTab(tab_2, QString());
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(460, 610, 166, 36));
+        layoutWidget3 = new QWidget(centralwidget);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(598, 11, 349, 38));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget3);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        pushButton_6 = new QPushButton(layoutWidget3);
+        pushButton_6->setObjectName("pushButton_6");
+
+        horizontalLayout_6->addWidget(pushButton_6);
+
+        pushButton_7 = new QPushButton(layoutWidget3);
+        pushButton_7->setObjectName("pushButton_7");
+
+        horizontalLayout_6->addWidget(pushButton_7);
+
+        pushButton_8 = new QPushButton(layoutWidget3);
+        pushButton_8->setObjectName("pushButton_8");
+
+        horizontalLayout_6->addWidget(pushButton_8);
+
+        pushButton_9 = new QPushButton(layoutWidget3);
+        pushButton_9->setObjectName("pushButton_9");
+
+        horizontalLayout_6->addWidget(pushButton_9);
+
+        layoutWidget4 = new QWidget(centralwidget);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(280, 50, 271, 241));
+        verticalLayout_4 = new QVBoxLayout(layoutWidget4);
+        verticalLayout_4->setObjectName("verticalLayout_4");
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        customerName = new QLineEdit(layoutWidget4);
+        customerName->setObjectName("customerName");
+        customerName->setAlignment(Qt::AlignCenter);
+        customerName->setReadOnly(true);
+
+        verticalLayout_4->addWidget(customerName);
+
+        tableWidget = new QTableWidget(layoutWidget4);
+        if (tableWidget->columnCount() < 3)
+            tableWidget->setColumnCount(3);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        __qtablewidgetitem15->setText(QString::fromUtf8("ID"));
+        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem16);
+        QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem17);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setColumnCount(3);
+
+        verticalLayout_4->addWidget(tableWidget);
+
+        layoutWidget5 = new QWidget(centralwidget);
+        layoutWidget5->setObjectName("layoutWidget5");
+        layoutWidget5->setGeometry(QRect(620, 50, 311, 235));
+        verticalLayout_5 = new QVBoxLayout(layoutWidget5);
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        travelID = new QLineEdit(layoutWidget5);
+        travelID->setObjectName("travelID");
+        travelID->setAlignment(Qt::AlignCenter);
+        travelID->setReadOnly(true);
+
+        verticalLayout_5->addWidget(travelID);
+
+        tableWidget_2 = new QTableWidget(layoutWidget5);
+        if (tableWidget_2->columnCount() < 4)
+            tableWidget_2->setColumnCount(4);
+        QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
+        __qtablewidgetitem18->setText(QString::fromUtf8("ID"));
+        tableWidget_2->setHorizontalHeaderItem(0, __qtablewidgetitem18);
+        QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(1, __qtablewidgetitem19);
+        QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(2, __qtablewidgetitem20);
+        QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
+        tableWidget_2->setHorizontalHeaderItem(3, __qtablewidgetitem21);
+        tableWidget_2->setObjectName("tableWidget_2");
+        tableWidget_2->setColumnCount(4);
+
+        verticalLayout_5->addWidget(tableWidget_2);
+
+        layoutWidget6 = new QWidget(centralwidget);
+        layoutWidget6->setObjectName("layoutWidget6");
+        layoutWidget6->setGeometry(QRect(282, 10, 271, 41));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget6);
+        horizontalLayout_5->setObjectName("horizontalLayout_5");
+        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
+        pushButton_2 = new QPushButton(layoutWidget6);
+        pushButton_2->setObjectName("pushButton_2");
+
+        horizontalLayout_5->addWidget(pushButton_2);
+
+        pushButton_3 = new QPushButton(layoutWidget6);
+        pushButton_3->setObjectName("pushButton_3");
+
+        horizontalLayout_5->addWidget(pushButton_3);
+
+        pushButton_5 = new QPushButton(layoutWidget6);
+        pushButton_5->setObjectName("pushButton_5");
+
+        horizontalLayout_5->addWidget(pushButton_5);
+
         travelAgencyUI->setCentralWidget(centralwidget);
         menubar = new QMenuBar(travelAgencyUI);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 736, 21));
+        menubar->setObjectName("menubar");
+        menubar->setGeometry(QRect(0, 0, 960, 30));
         menuUp_and_away = new QMenu(menubar);
-        menuUp_and_away->setObjectName(QString::fromUtf8("menuUp_and_away"));
+        menuUp_and_away->setObjectName("menuUp_and_away");
+        menuCustomers = new QMenu(menubar);
+        menuCustomers->setObjectName("menuCustomers");
         travelAgencyUI->setMenuBar(menubar);
         statusbar = new QStatusBar(travelAgencyUI);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
+        statusbar->setObjectName("statusbar");
         travelAgencyUI->setStatusBar(statusbar);
 
         menubar->addAction(menuUp_and_away->menuAction());
+        menubar->addAction(menuCustomers->menuAction());
 
         retranslateUi(travelAgencyUI);
 
-        Information->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(travelAgencyUI);
@@ -441,40 +304,60 @@ public:
     void retranslateUi(QMainWindow *travelAgencyUI)
     {
         travelAgencyUI->setWindowTitle(QCoreApplication::translate("travelAgencyUI", "MainWindow", nullptr));
-#if QT_CONFIG(whatsthis)
-        Information->setWhatsThis(QCoreApplication::translate("travelAgencyUI", "<html><head/><body><p><br/></p></body></html>", nullptr));
-#endif // QT_CONFIG(whatsthis)
-        groupBox_7->setTitle(QCoreApplication::translate("travelAgencyUI", "Flugbuchung", nullptr));
-        label_15->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
-        label_16->setText(QCoreApplication::translate("travelAgencyUI", "Startdatum", nullptr));
-        label_17->setText(QCoreApplication::translate("travelAgencyUI", "Enddatum", nullptr));
-        label_18->setText(QCoreApplication::translate("travelAgencyUI", "Startflughafen", nullptr));
-        label_19->setText(QCoreApplication::translate("travelAgencyUI", "Endflughafen", nullptr));
-        label_20->setText(QCoreApplication::translate("travelAgencyUI", "Fluggesellschaft", nullptr));
-        label_21->setText(QCoreApplication::translate("travelAgencyUI", "Preis", nullptr));
-        Information->setTabText(Information->indexOf(Flugbuchung), QCoreApplication::translate("travelAgencyUI", "Tab 1", nullptr));
-        groupBox_2->setTitle(QCoreApplication::translate("travelAgencyUI", "Hotelbuchung", nullptr));
-        label_22->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
-        label_23->setText(QCoreApplication::translate("travelAgencyUI", "Startdatum", nullptr));
-        label_24->setText(QCoreApplication::translate("travelAgencyUI", "Enddatum", nullptr));
-        label_25->setText(QCoreApplication::translate("travelAgencyUI", "Hotel", nullptr));
-        label_26->setText(QCoreApplication::translate("travelAgencyUI", "Stadt", nullptr));
-        label_27->setText(QCoreApplication::translate("travelAgencyUI", "Price", nullptr));
-        Information->setTabText(Information->indexOf(HotelBuchung), QCoreApplication::translate("travelAgencyUI", "Tab 2", nullptr));
-        groupBox_4->setTitle(QCoreApplication::translate("travelAgencyUI", "Autobuchung", nullptr));
-        label->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
-        label_2->setText(QCoreApplication::translate("travelAgencyUI", "Startdate", nullptr));
-        label_3->setText(QCoreApplication::translate("travelAgencyUI", "Enddate", nullptr));
-        label_4->setText(QCoreApplication::translate("travelAgencyUI", "Startstation", nullptr));
-        label_5->setText(QCoreApplication::translate("travelAgencyUI", "Endstation", nullptr));
-        label_6->setText(QCoreApplication::translate("travelAgencyUI", "Company", nullptr));
-        label_7->setText(QCoreApplication::translate("travelAgencyUI", "Preis", nullptr));
-        Information->setTabText(Information->indexOf(AutoBuchung), QCoreApplication::translate("travelAgencyUI", "Page", nullptr));
         readFile->setText(QCoreApplication::translate("travelAgencyUI", "Read The File", nullptr));
-        showBooking->setText(QCoreApplication::translate("travelAgencyUI", "Show Booking", nullptr));
-        showAllBooking->setText(QCoreApplication::translate("travelAgencyUI", "Show All Bookings", nullptr));
-        saveData->setText(QCoreApplication::translate("travelAgencyUI", "Save Data", nullptr));
-        menuUp_and_away->setTitle(QCoreApplication::translate("travelAgencyUI", "Welcome", nullptr));
+        Customer->setText(QCoreApplication::translate("travelAgencyUI", "Customer", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tableWidget_3->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("travelAgencyUI", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tableWidget_3->verticalHeaderItem(0);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget_3->verticalHeaderItem(1);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("travelAgencyUI", "Startdate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget_3->verticalHeaderItem(2);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("travelAgencyUI", "Enddate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidget_3->verticalHeaderItem(3);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("travelAgencyUI", "Startlocation", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tableWidget_3->verticalHeaderItem(4);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("travelAgencyUI", "Endlocation", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tableWidget_3->verticalHeaderItem(5);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("travelAgencyUI", "Company", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tableWidget_3->verticalHeaderItem(6);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("travelAgencyUI", "Price", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("travelAgencyUI", "Tab 1", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tableWidget_4->horizontalHeaderItem(0);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("travelAgencyUI", "Value", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = tableWidget_4->verticalHeaderItem(0);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = tableWidget_4->verticalHeaderItem(1);
+        ___qtablewidgetitem10->setText(QCoreApplication::translate("travelAgencyUI", "Startdate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = tableWidget_4->verticalHeaderItem(2);
+        ___qtablewidgetitem11->setText(QCoreApplication::translate("travelAgencyUI", "Enddate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = tableWidget_4->verticalHeaderItem(3);
+        ___qtablewidgetitem12->setText(QCoreApplication::translate("travelAgencyUI", "Hotel", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = tableWidget_4->verticalHeaderItem(4);
+        ___qtablewidgetitem13->setText(QCoreApplication::translate("travelAgencyUI", "Town", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = tableWidget_4->verticalHeaderItem(5);
+        ___qtablewidgetitem14->setText(QCoreApplication::translate("travelAgencyUI", "Price", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("travelAgencyUI", "Tab 2", nullptr));
+        pushButton->setText(QCoreApplication::translate("travelAgencyUI", "Update ", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("travelAgencyUI", "Start", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("travelAgencyUI", "End", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("travelAgencyUI", "Price", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = tableWidget->horizontalHeaderItem(1);
+        ___qtablewidgetitem15->setText(QCoreApplication::translate("travelAgencyUI", "Startdate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem16 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem16->setText(QCoreApplication::translate("travelAgencyUI", "Enddate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem17 = tableWidget_2->horizontalHeaderItem(1);
+        ___qtablewidgetitem17->setText(QCoreApplication::translate("travelAgencyUI", "Startdate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem18 = tableWidget_2->horizontalHeaderItem(2);
+        ___qtablewidgetitem18->setText(QCoreApplication::translate("travelAgencyUI", "Enddate", nullptr));
+        QTableWidgetItem *___qtablewidgetitem19 = tableWidget_2->horizontalHeaderItem(3);
+        ___qtablewidgetitem19->setText(QCoreApplication::translate("travelAgencyUI", "Price", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("travelAgencyUI", "ID", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("travelAgencyUI", "Start", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("travelAgencyUI", "End", nullptr));
+        menuUp_and_away->setTitle(QCoreApplication::translate("travelAgencyUI", "Bookings", nullptr));
+        menuCustomers->setTitle(QCoreApplication::translate("travelAgencyUI", "Customers", nullptr));
     } // retranslateUi
 
 };

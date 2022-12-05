@@ -45,6 +45,11 @@ QDate Booking::setQDate(const string &date)
     return QDate::fromString(QString::fromStdString(date),"yyyyMMdd");
 }
 
+QDateEdit Booking::fixQDate(const QDate &qdate)
+{
+
+}
+
 
 
 Booking::~Booking()
@@ -62,6 +67,16 @@ void Booking::setType(const string &newType)
     type = newType;
 }
 
+long Booking::getTravelID() const
+{
+    return travelID;
+}
+
+void Booking::setTravelID(long newTravelID)
+{
+    travelID = newTravelID;
+}
+
 Booking::Booking()
 {
 
@@ -72,3 +87,43 @@ Booking::Booking(int id, double price, const string &fromDate, const string &toD
     fromDate(fromDate),
     toDate(toDate)
 {}
+
+void Booking::setFromDestination(const string &newFromDestination)
+{
+
+}
+
+void Booking::setToDestination(const string &newToDestination)
+{
+
+}
+
+void Booking::setAirline(const string &newAirline)
+{
+
+}
+
+void Booking::setReturnLocation(const string &newReturnLocation)
+{
+
+}
+
+void Booking::setPickupLocation(const string &newPickupLocation)
+{
+
+}
+
+void Booking::setCompany(const string &newCompany)
+{
+
+}
+
+void Booking::setHotel(const string &newHotel)
+{
+
+}
+
+void Booking::setTown(const string &newTown)
+{
+
+}

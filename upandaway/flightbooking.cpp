@@ -1,5 +1,35 @@
 #include "flightbooking.h"
 
+string FlightBooking::getFromDestination() const
+{
+    return fromDestination;
+}
+
+void FlightBooking::setFromDestination(const string &newFromDestination)
+{
+    fromDestination = newFromDestination;
+}
+
+string FlightBooking::getToDestination() const
+{
+    return toDestination;
+}
+
+void FlightBooking::setToDestination(const string &newToDestination)
+{
+    toDestination = newToDestination;
+}
+
+string FlightBooking::getAirline() const
+{
+    return airline;
+}
+
+void FlightBooking::setAirline(const string &newAirline)
+{
+    airline = newAirline;
+}
+
 FlightBooking::FlightBooking()
 {
 
@@ -16,6 +46,9 @@ string FlightBooking::showDetails()
 std::vector<string> FlightBooking::getDetails()
 {
     vector<string> result;
+    result.push_back(to_string(id));
+    result.push_back(fromDate);
+    result.push_back(toDate);
     result.push_back(fromDestination);
     result.push_back(toDestination);
     result.push_back(airline);

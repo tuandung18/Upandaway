@@ -10,6 +10,7 @@ class Booking
 protected:
     string type;
     long id;
+    long travelID;
     double price;
     string fromDate;
     string toDate;
@@ -18,6 +19,19 @@ public:
     Booking(int id, double price, const string &fromDate, const string &toDate);
     virtual string showDetails() = 0;
     virtual vector<string> getDetails() = 0;
+    virtual void setFromDestination(const string &newFromDestination);
+    virtual void setToDestination(const string &newToDestination) ;
+    virtual void setAirline(const string &newAirline) ;
+
+    virtual void setReturnLocation(const string &newReturnLocation);
+    virtual void setPickupLocation(const string &newPickupLocation);
+    virtual void setCompany(const string &newCompany);
+
+    virtual void setHotel(const string &newHotel);
+    virtual void setTown(const string &newTown);
+
+
+
     long getId() const;
     void setId(long newId);
     double getPrice() const;
@@ -31,6 +45,8 @@ public:
     virtual ~Booking();
     const string &getType() const;
     void setType(const string &newType);
+    long getTravelID() const;
+    void setTravelID(long newTravelID);
 };
 
 #endif // BOOKING_H

@@ -1,5 +1,25 @@
 #include "hotelbooking.h"
 
+string HotelBooking::getHotel() const
+{
+    return hotel;
+}
+
+void HotelBooking::setHotel(const string &newHotel)
+{
+    hotel = newHotel;
+}
+
+string HotelBooking::getTown() const
+{
+    return town;
+}
+
+void HotelBooking::setTown(const string &newTown)
+{
+    town = newTown;
+}
+
 HotelBooking::HotelBooking()
 {
 
@@ -16,6 +36,9 @@ string HotelBooking::showDetails()
 std::vector<string> HotelBooking::getDetails()
 {
     vector<string> result;
+    result.push_back(to_string(id));
+    result.push_back(fromDate);
+    result.push_back(toDate);
     result.push_back(hotel);
     result.push_back(town);
     result.push_back(to_string(price));

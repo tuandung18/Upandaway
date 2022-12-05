@@ -6,348 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>736</width>
-    <height>576</height>
+    <width>960</width>
+    <height>825</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTabWidget" name="Information">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>30</y>
-      <width>321</width>
-      <height>301</height>
-     </rect>
-    </property>
-    <property name="whatsThis">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="tabShape">
-     <enum>QTabWidget::Rounded</enum>
-    </property>
-    <property name="currentIndex">
-     <number>2</number>
-    </property>
-    <widget class="QWidget" name="Flugbuchung">
-     <attribute name="title">
-      <string>Tab 1</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_7">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>10</y>
-        <width>151</width>
-        <height>249</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Flugbuchung</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_15">
-         <item>
-          <widget class="QLineEdit" name="FID"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="FSDate"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="FEDate"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="FSFlughafen"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="FEFlugafen"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="FCompany"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="FPrice"/>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>40</y>
-        <width>87</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_14">
-       <item>
-        <widget class="QLabel" name="label_15">
-         <property name="text">
-          <string>ID</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_16">
-         <property name="text">
-          <string>Startdatum</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_17">
-         <property name="text">
-          <string>Enddatum</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_18">
-         <property name="text">
-          <string>Startflughafen</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_19">
-         <property name="text">
-          <string>Endflughafen</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_20">
-         <property name="text">
-          <string>Fluggesellschaft</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_21">
-         <property name="text">
-          <string>Preis</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="HotelBuchung">
-     <attribute name="title">
-      <string>Tab 2</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_2">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>10</y>
-        <width>161</width>
-        <height>241</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Hotelbuchung</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
-         <item>
-          <widget class="QLineEdit" name="HID"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="HSDate"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="HEDate"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="HHotel"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="HStadt"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="HPrice"/>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_5">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>71</width>
-        <height>191</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_16">
-       <item>
-        <widget class="QLabel" name="label_22">
-         <property name="text">
-          <string>ID</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_23">
-         <property name="text">
-          <string>Startdatum</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_24">
-         <property name="text">
-          <string>Enddatum</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_25">
-         <property name="text">
-          <string>Hotel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_26">
-         <property name="text">
-          <string>Stadt</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_27">
-         <property name="text">
-          <string>Price</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="AutoBuchung">
-     <attribute name="title">
-      <string>Page</string>
-     </attribute>
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>10</y>
-        <width>151</width>
-        <height>249</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Autobuchung</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
-         <item>
-          <widget class="QLineEdit" name="AID"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="ASDate"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="AEDate"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="ASStation"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="AEStation"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="ACompany"/>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="APrice"/>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>40</y>
-        <width>71</width>
-        <height>201</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_8">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>ID</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>Startdate</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Enddate</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Startstation</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>Endstation</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Company</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>Preis</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>70</y>
-      <width>129</width>
-      <height>116</height>
+      <x>10</x>
+      <y>60</y>
+      <width>168</width>
+      <height>218</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -368,23 +41,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="showBooking">
+      <widget class="QPushButton" name="Customer">
        <property name="text">
-        <string>Show Booking</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="showAllBooking">
-       <property name="text">
-        <string>Show All Bookings</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="saveData">
-       <property name="text">
-        <string>Save Data</string>
+        <string>Customer</string>
        </property>
       </widget>
      </item>
@@ -412,15 +71,294 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4"/>
    </widget>
-   <widget class="QListWidget" name="bookings">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>400</x>
       <y>340</y>
-      <width>591</width>
-      <height>192</height>
+      <width>286</width>
+      <height>264</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QTableWidget" name="tableWidget_3">
+        <row>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Startdate</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Enddate</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Startlocation</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Endlocation</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Company</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Price</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>Value</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QTableWidget" name="tableWidget_4">
+        <row>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Startdate</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Enddate</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Hotel</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Town</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Price</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>Value</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>610</y>
+      <width>166</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Update </string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>598</x>
+      <y>11</y>
+      <width>349</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="text">
+        <string>End</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_9">
+       <property name="text">
+        <string>Price</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>50</y>
+      <width>271</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QLineEdit" name="customerName">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <column>
+        <property name="text">
+         <string notr="true">ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Startdate</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Enddate</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>50</y>
+      <width>311</width>
+      <height>235</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <widget class="QLineEdit" name="travelID">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="tableWidget_2">
+       <property name="columnCount">
+        <number>4</number>
+       </property>
+       <column>
+        <property name="text">
+         <string notr="true">ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Startdate</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Enddate</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Price</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>282</x>
+      <y>10</y>
+      <width>271</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Start</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="text">
+        <string>End</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -428,16 +366,22 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>736</width>
-     <height>21</height>
+     <width>960</width>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuUp_and_away">
     <property name="title">
-     <string>Welcome</string>
+     <string>Bookings</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuCustomers">
+    <property name="title">
+     <string>Customers</string>
     </property>
    </widget>
    <addaction name="menuUp_and_away"/>
+   <addaction name="menuCustomers"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
