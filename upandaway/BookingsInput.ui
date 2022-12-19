@@ -72,6 +72,11 @@
          <string>Value</string>
         </property>
        </column>
+       <item row="0" column="0">
+        <property name="flags">
+         <set>ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>

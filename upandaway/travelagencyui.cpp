@@ -110,7 +110,6 @@ string travelAgencyUI::readFile(string sourceName)
                 countF++;
                 priceF+=booking->getPrice();
 
-                //            cout<<booking->showDetails()<<endl;u
 
             }
             if(typ=="H"){
@@ -118,16 +117,13 @@ string travelAgencyUI::readFile(string sourceName)
                 bookings.push_back(booking);
                 countH++;
                 priceH+=booking->getPrice();
-                //            cout<<booking->showDetails()<<endl;
             }
             if(typ=="R"){
                 shared_ptr<Booking> booking = make_shared<RentalCarReservation> (bType, bId, bPrice, bFromDate, bToDate, bTravelID, daten[8],daten[9],daten[10]);
                 bookings.push_back(booking);
                 countR++;
                 priceR+=booking->getPrice();
-                //            cout<<booking->showDetails()<<endl;
             }
-            //TODO: find a way to get booking out of if-statements
 
             /*
              * Now we check if travelid and customerid
@@ -340,42 +336,37 @@ void travelAgencyUI::on_Customer_clicked()
 
     QTableWidget* tableWidget = ui->tableWidget;
     tableWidget->clear();
-    if(bookings.empty())
+
+
+    idInput*id = new idInput;
+    id->show();
+    id->exec();
+
+    tableWidget->setColumnCount(3);
+    int row = 0;
+    if(findCustomer(id->getSavedID())==nullptr)
     {
         QMessageBox* message = new QMessageBox;
-        message->about(this,QString::fromStdString("No booking"),QString::fromStdString("No booking given"));
+        message->about(this,QString::fromStdString("Customer not found"),QString::fromStdString("No customer with this ID found"));
+
         delete message;
     }
+    else{
 
-    else{idInput*id = new idInput;
-        id->show();
-        id->exec();
-
-        tableWidget->setColumnCount(3);
-        int row = 0;
-        if(findCustomer(id->getSavedID())==nullptr)
+        shared_ptr<Customer> customer = findCustomer(id->getSavedID());
+        ui->customerName->setText(QString::fromStdString(customer->getName()));
+        for(auto &t : customer->getTravelList())
         {
-            QMessageBox* message = new QMessageBox;
-            message->about(this,QString::fromStdString("Customer not found"),QString::fromStdString("No customer with this ID found"));
+            tableWidget->insertRow(row);
+            tableWidget->setItem(row,0,new MyQTableWidgetItem(QString::fromStdString(to_string(t->getId()))));
+            tableWidget->setItem(row,1,new MyQTableWidgetItem(QString::fromStdString(t->soonestBooking()->getFromDate())));
+            tableWidget->setItem(row,2 ,new MyQTableWidgetItem(QString::fromStdString(t->latestBooking()->getToDate())));
 
-            delete message;
-        }
-        else{
+            row++;
 
-            shared_ptr<Customer> customer = findCustomer(id->getSavedID());
-            ui->customerName->setText(QString::fromStdString(customer->getName()));
-            for(auto &t : customer->getTravelList())
-            {
-                tableWidget->insertRow(row);
-                tableWidget->setItem(row,0,new MyQTableWidgetItem(QString::fromStdString(to_string(t->getId()))));
-                tableWidget->setItem(row,1,new MyQTableWidgetItem(QString::fromStdString(t->soonestBooking()->getFromDate())));
-                tableWidget->setItem(row,2 ,new MyQTableWidgetItem(QString::fromStdString(t->latestBooking()->getToDate())));
-
-                row++;
-
-            }
         }
     }
+
 
 }
 
@@ -620,20 +611,28 @@ void travelAgencyUI::on_saveJsonButton_clicked()
 
 void travelAgencyUI::on_addCustomer_clicked()
 {
-    //TODO: no booking what happens?
-    unique_ptr<idInput> customerNameInput = make_unique<idInput>();
-    customerNameInput->show();
-    customerNameInput->exec();
-    for(auto &c : allCustomers){
-        if(c->getId()>actualCustomerID)
-            actualCustomerID = c->getId();
-    }
-    string customerName = customerNameInput->getSavedCustomerName();
-    if(!customerName.empty()){
-        actualCustomerID++;
-        shared_ptr<Customer> newCustomer = make_shared<Customer>(actualCustomerID,customerName);
-        allCustomers.push_back(newCustomer);
-    }
+
+
+        unique_ptr<idInput> customerNameInput = make_unique<idInput>();
+        customerNameInput->show();
+        customerNameInput->exec();
+        for(auto &c : allCustomers){
+            if(c->getId()>actualCustomerID)
+                actualCustomerID = c->getId();
+        }
+
+        /*
+         * TODO: Name already exists then add values to the customer not creating new one
+         * */
+
+        string customerName = customerNameInput->getSavedCustomerName();
+        if(!customerName.empty()){
+            actualCustomerID++;
+            shared_ptr<Customer> newCustomer = make_shared<Customer>(actualCustomerID,customerName);
+            allCustomers.push_back(newCustomer);
+        }
+
+
 
 }
 

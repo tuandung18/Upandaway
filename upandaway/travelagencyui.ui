@@ -17,8 +17,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
+      <x>640</x>
+      <y>460</y>
       <width>168</width>
       <height>218</height>
      </rect>
@@ -102,10 +102,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>340</y>
-      <width>286</width>
-      <height>321</height>
+      <x>590</x>
+      <y>10</y>
+      <width>271</width>
+      <height>331</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -215,7 +215,7 @@
      <widget class="QTableWidget" name="tableWidget_5">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>10</y>
         <width>264</width>
         <height>271</height>
@@ -290,8 +290,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>680</y>
+      <x>640</x>
+      <y>340</y>
       <width>166</width>
       <height>36</height>
      </rect>
@@ -300,196 +300,177 @@
      <string>Update </string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>598</x>
-      <y>11</y>
-      <width>349</width>
-      <height>38</height>
+      <x>80</x>
+      <y>420</y>
+      <width>421</width>
+      <height>260</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton_6">
-       <property name="text">
-        <string>ID</string>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_5">
+         <property name="text">
+          <string>End</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_7">
-       <property name="text">
-        <string>Start</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_8">
-       <property name="text">
-        <string>End</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_9">
-       <property name="text">
-        <string>Price</string>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLineEdit" name="customerName">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget">
+         <property name="columnCount">
+          <number>3</number>
+         </property>
+         <column>
+          <property name="text">
+           <string notr="true">ID</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Startdate</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Enddate</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>50</y>
-      <width>271</width>
-      <height>241</height>
+      <x>80</x>
+      <y>60</y>
+      <width>421</width>
+      <height>260</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
+    <layout class="QVBoxLayout" name="verticalLayout_6">
      <item>
-      <widget class="QLineEdit" name="customerName">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="text">
+          <string>End</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_9">
+         <property name="text">
+          <string>Price</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget">
-       <property name="columnCount">
-        <number>3</number>
-       </property>
-       <column>
-        <property name="text">
-         <string notr="true">ID</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Startdate</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Enddate</string>
-        </property>
-       </column>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QLineEdit" name="travelID">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="tableWidget_2">
+         <property name="columnCount">
+          <number>4</number>
+         </property>
+         <column>
+          <property name="text">
+           <string notr="true">ID</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Startdate</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Enddate</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Price</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>50</y>
-      <width>311</width>
-      <height>235</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QLineEdit" name="travelID">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTableWidget" name="tableWidget_2">
-       <property name="columnCount">
-        <number>4</number>
-       </property>
-       <column>
-        <property name="text">
-         <string notr="true">ID</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Startdate</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Enddate</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Price</string>
-        </property>
-       </column>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>282</x>
-      <y>10</y>
-      <width>271</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="text">
-        <string>ID</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="text">
-        <string>Start</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_5">
-       <property name="text">
-        <string>End</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>960</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuUp_and_away">
-    <property name="title">
-     <string>Bookings</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuCustomers">
-    <property name="title">
-     <string>Customers</string>
-    </property>
-   </widget>
-   <addaction name="menuUp_and_away"/>
-   <addaction name="menuCustomers"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
  </widget>
  <resources/>
  <connections/>
