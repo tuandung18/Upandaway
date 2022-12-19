@@ -1,4 +1,6 @@
 #include "customer.h"
+#include <iostream>
+#include <ostream>
 
 long Customer::getId() const
 {
@@ -45,7 +47,9 @@ bool Customer::searchTravel(long id)
 }
 void Customer::addTravel(shared_ptr<Travel>travel)
 {
-    if(!searchTravel(travel->getId()))
+    if(travelList.empty())
+        travelList.push_back(travel);
+    else if(!searchTravel(travel->getId()))
         travelList.push_back(travel);
 
 }

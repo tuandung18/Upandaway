@@ -1,4 +1,5 @@
 #include "travelagencyui.h"
+#include "BookingsInput.h"
 #include "savejson.h"
 #include "ui_travelagencyui.h"
 #include <flightbooking.h>
@@ -7,12 +8,8 @@
 #include<algorithm>
 #include<myqtablewidgetitem.h>
 #include<qstring.h>
-#include <nlohmann/json.hpp>
-#include <rapidjson/rapidjson.h>
 #include <memory>
-#include <rapidjson/document.h>
-using json = nlohmann::json;
-using namespace rapidjson;
+
 #define bType daten[0]
 #define bId stoi(daten[1])
 #define bPrice stod(daten[2])
@@ -340,7 +337,9 @@ void travelAgencyUI::setAirportName(FlightBooking *f, QMultiMap<QString,Airport*
 
 void travelAgencyUI::on_Customer_clicked()
 {
+
     QTableWidget* tableWidget = ui->tableWidget;
+    tableWidget->clear();
     if(bookings.empty())
     {
         QMessageBox* message = new QMessageBox;
@@ -621,12 +620,85 @@ void travelAgencyUI::on_saveJsonButton_clicked()
 
 void travelAgencyUI::on_addCustomer_clicked()
 {
+    //TODO: no booking what happens?
     unique_ptr<idInput> customerNameInput = make_unique<idInput>();
     customerNameInput->show();
     customerNameInput->exec();
-    allCustomers.back();
-    ´
+    for(auto &c : allCustomers){
+        if(c->getId()>actualCustomerID)
+            actualCustomerID = c->getId();
+    }
     string customerName = customerNameInput->getSavedCustomerName();
-    shared_ptr<Customer> newCustomer = make_shared<Customer>(id,customerName);
+    if(!customerName.empty()){
+        actualCustomerID++;
+        shared_ptr<Customer> newCustomer = make_shared<Customer>(actualCustomerID,customerName);
+        allCustomers.push_back(newCustomer);
+    }
+
+}
+
+
+void travelAgencyUI::on_addBooking_clicked()
+{
+    QSharedPointer<BookingsInput> bookingInput(new BookingsInput);
+    bookingInput->show();
+    bookingInput->exec();
+
+
+    for(auto &t : allTravels){
+        if(t->getId()>actualTravelID)
+            actualTravelID=t->getId();
+    }
+    for(auto &b : bookings){
+        if(b->getId()>actualBookingID)
+            actualBookingID=b->getId();
+    }
+    shared_ptr<Travel> newTravel;
+    shared_ptr<FlightBooking> newFlight = bookingInput->getNewFlight();
+    shared_ptr<RentalCarReservation> newCar = bookingInput->getNewCar();
+    shared_ptr<HotelBooking> newHotel = bookingInput->getNewHotel();
+    if(newHotel!=nullptr or newCar!=nullptr or newFlight!=nullptr){
+        /*
+         * Making new travel and booking
+         * */
+        actualTravelID++;
+        actualBookingID++;
+        newTravel = make_shared<Travel>(actualTravelID,actualCustomerID);
+
+        findCustomer(actualCustomerID)->addTravel(newTravel);
+        allTravels.push_back(newTravel);
+        if(newCar!=nullptr){
+            newCar->setId(actualBookingID);
+            newCar->setTravelID(actualTravelID);
+
+
+            newTravel->addBooking(newCar);
+            bookings.push_back(newCar);
+
+        }
+        if(newFlight!=nullptr){
+            newFlight->setId(actualBookingID);
+            newFlight->setTravelID(actualTravelID);
+
+
+
+            newTravel->addBooking(newFlight);
+
+            bookings.push_back(newFlight);
+
+        }
+        if(newHotel!=nullptr){
+            newHotel->setId(actualBookingID);
+            newHotel->setTravelID(actualTravelID);
+
+            newTravel->addBooking(newHotel);
+
+            bookings.push_back(newHotel);
+
+        }
+
+    }
+
+
 }
 

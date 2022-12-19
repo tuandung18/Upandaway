@@ -44,6 +44,9 @@ public:
     void setAirportName(FlightBooking* f, QMultiMap<QString, Airport *> map);
     int countF=0, countH=0, countR=0, countTravel = 0, countCustomer = 0;
     double priceF=0.0,priceH=0.0,priceR=0.0;
+    long actualTravelID=0, actualBookingID = 0;
+    long actualCustomerID = 0;
+
 
 
 
@@ -98,6 +101,8 @@ private slots:
     void on_saveJsonButton_clicked();
 
     void on_addCustomer_clicked();
+
+    void on_addBooking_clicked();
 
 private:
     Ui::travelAgencyUI *ui;

@@ -8,6 +8,7 @@ CONFIG -= app_bundle
 
 
 SOURCES += \
+        BookingsInput.cpp \
         Test.cpp \
         airport.cpp \
         booking.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 
 
 HEADERS += \
+    BookingsInput.h \
     Test.h \
     airport.h \
     booking.h \
@@ -44,6 +46,7 @@ HEADERS += \
     travelagencyui.h
 
 FORMS += \
+    BookingsInput.ui \
     Customer.ui \
     idinput.ui \
     popup.ui \

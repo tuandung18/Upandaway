@@ -37,6 +37,7 @@ public:
     QPushButton *readAirport;
     QPushButton *Customer;
     QPushButton *addCustomer;
+    QPushButton *addBooking;
     QPushButton *saveJsonButton;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_3;
@@ -110,6 +111,11 @@ public:
         addCustomer->setObjectName("addCustomer");
 
         verticalLayout->addWidget(addCustomer);
+
+        addBooking = new QPushButton(layoutWidget);
+        addBooking->setObjectName("addBooking");
+
+        verticalLayout->addWidget(addBooking);
 
         saveJsonButton = new QPushButton(layoutWidget);
         saveJsonButton->setObjectName("saveJsonButton");
@@ -364,6 +370,7 @@ public:
         readAirport->setText(QCoreApplication::translate("travelAgencyUI", "Read Airport", nullptr));
         Customer->setText(QCoreApplication::translate("travelAgencyUI", "Find Customer", nullptr));
         addCustomer->setText(QCoreApplication::translate("travelAgencyUI", "Add Customer", nullptr));
+        addBooking->setText(QCoreApplication::translate("travelAgencyUI", "Add Booking", nullptr));
         saveJsonButton->setText(QCoreApplication::translate("travelAgencyUI", "Save To Json", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_3->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("travelAgencyUI", "Value", nullptr));
