@@ -20,12 +20,12 @@ void Customer::setName(const string &newName)
     name = newName;
 }
 
-vector<Travel *> Customer::getTravelList() const
+vector<shared_ptr<Travel>> Customer::getTravelList() const
 {
     return travelList;
 }
 
-void Customer::setTravelList(const vector<Travel *> &newTravelList)
+void Customer::setTravelList(const vector<shared_ptr<Travel>> &newTravelList)
 {
     travelList = newTravelList;
 }
@@ -43,7 +43,7 @@ bool Customer::searchTravel(long id)
     }
     return false;
 }
-void Customer::addTravel(Travel *travel)
+void Customer::addTravel(shared_ptr<Travel>travel)
 {
     if(!searchTravel(travel->getId()))
         travelList.push_back(travel);

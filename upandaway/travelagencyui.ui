@@ -47,6 +47,13 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="readAirport">
+       <property name="text">
+        <string>Read Airport</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -81,11 +88,11 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Car</string>
      </attribute>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -136,7 +143,7 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Hotel</string>
      </attribute>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
@@ -179,6 +186,84 @@
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Flight</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>264</width>
+        <height>215</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Startdate</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Enddate</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Startlocation</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Startairport</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Endlocation</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Endairport</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Company</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Price</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Value</string>
+       </property>
+      </column>
+      <item row="4" column="0">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flags">
+        <set>ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+      <item row="5" column="0">
+       <property name="flags">
+        <set>ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="pushButton">
@@ -367,7 +452,7 @@
      <x>0</x>
      <y>0</y>
      <width>960</width>
-     <height>30</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuUp_and_away">

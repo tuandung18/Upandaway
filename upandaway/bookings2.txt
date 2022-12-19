@@ -1,0 +1,106 @@
+F|70|1499.0|20150104|20150109|14|8|Robertson Davies|FRA|ORD|United Airlines
+R|71|466.0|20150104|20150109|14|8|Robertson Davies|Chicago OHare Intl Airport|Chicago OHare Intl Airport|Avis
+H|72|501.03|20150104|20150109|14|8|Robertson Davies|Mark Twain Hotel|Peoria
+F|73|1358.0|20150109|20150110|14|8|Robertson Davies|ORD|FRA|United Airlines
+F|74|330.0|20150608|20150608|15|8|Robertson Davies|STR|CDG|Air France
+H|75|751.03|20150608|20150612|15|8|Robertson Davies|Citadines Saint-Germain-des-Prés|Paris
+F|76|290.0|20150612|20150612|15|8|Robertson Davies|STR|CDG|Air France
+F|29|258.03|20150201|20150201|5|2|Haruki Murakami|HAM|MUC|Air Berlin
+F|30|251.03|20150201|20150201|5|2|Haruki Murakami|MUC|HAM|Air Berlin
+F|31|316.01|20150401|20150401|6|3|Theodor Fontane|MUC|BCN|Vueling Airlines
+R|32|111.01|20150401|20150404|6|3|Theodor Fontane|BARCELONA FLUGHAFEN TERMINAL 1|BARCELONA FLUGHAFEN TERMINAL 1|Europcar
+H|33|381.01|20150401|20150405|6|3|Theodor Fontane|Tarraco Park|Tarragona
+F|34|288.93|20150404|20150404|6|3|Theodor Fontane|BCN|MUC|Vueling Airlines
+F|35|277.01|20150602|20150603|7|4|Selma Lagerlöf|STR|WAW|Lufthansa
+R|36|167.01|20150602|20150603|7|4|Selma Lagerlöf|WARSCHAU CHOPIN FLUGHAFEN|WARSCHAU CHOPIN FLUGHAFEN|Europcar
+H|37|256.02|20150602|20150603|7|4|Selma Lagerlöf|Residence 1898|Warschau
+F|38|288.93|20150603|20150603|7|4|Selma Lagerlöf|WAW|STR|Lufthansa
+F|54|2892.04|20150604|20150605|11|6|Grazia Deledda|FRA|GRU|Lufthansa
+F|55|234.91|20150605|20150605|11|6|Grazia Deledda|GRU|POA|TAM Linhas Aéreas
+R|56|1345.82|20150605|20150617|11|6|Grazia Deledda|Porto Alegre Airport|Porto Alegre Airport|Hertz
+H|57|2986.0|20150605|20150617|11|6|Grazia Deledda|Radisson|Porto Alegre
+F|58|224.19|20150617|20150617|11|6|Grazia Deledda|POA|GRU|TAM Linhas Aéreas
+F|59|2634.24|20150617|20150618|11|6|Grazia Deledda|GRU|FRA|Lufthansa
+F|39|3298.08|20150323|20150323|8|5|Jane Austen|FRA|DEL|Indian Airlines
+H|40|556.02|20150323|20150325|8|5|Jane Austen|The Leela Palace|New Delhi
+F|41|218.78|20150325|20150325|8|5|Jane Austen|DEL|BLR|Jet Airways
+H|42|611.43|20150325|20150328|8|5|Jane Austen|The Oberoi|Bangalore
+F|43|2778.18|20150328|20150329|8|5|Jane Austen|BLR|SIN|Singapur Airlines
+F|44|2543.21|20150329|20150329|8|5|Jane Austen|SIN|HND|All Nippon Airways
+H|45|611.43|20150329|20150402|8|5|Jane Austen|Daiichi Hotel Annex|Tokyo
+F|46|4543.21|20150402|20150402|8|5|Jane Austen|HND|FRA|Lufthansa
+F|47|304.01|20150503|20150503|9|3|Theodor Fontane|MUC|BCN|Vueling Airlines
+R|48|123.01|20150503|20150505|9|3|Theodor Fontane|BARCELONA FLUGHAFEN TERMINAL 1|BARCELONA FLUGHAFEN TERMINAL 1|Europcar
+H|49|356.01|20150503|20150505|9|3|Theodor Fontane|Tarraco Park|Tarragona
+F|50|283.93|20150505|20150505|9|3|Theodor Fontane|BCN|MUC|Vueling Airlines
+F|51|258.03|20150101|20150101|10|2|Haruki Murakami|MUC|HAM|Air Berlin
+H|52|1224.04|20150101|20150112|10|2|Haruki Murakami|Hotel Atlantic|Hamburg
+F|53|251.03|20150112|20150112|10|2|Haruki Murakami|HAM|MUC|Air Berlin
+F|60|187.93|20150809|20150814|12|7|Lew Nikolajewitsch Tolstoi|FRA|VIE|Austrian Airlines
+R|61|265.11|20150809|20150814|12|7|Lew Nikolajewitsch Tolstoi|Wien-Schwechat Flughafen|Wien-Schwechat Flughafen|Sixt
+H|62|199.99|20150809|20150814|12|7|Lew Nikolajewitsch Tolstoi|Hotel Kummer|Wien
+F|63|167.01|20150814|20150814|12|7|Lew Nikolajewitsch Tolstoi|VIE|FRA|Austrian Airlines
+F|64|145.00|20150313|20150313|13|2|Haruki Murakami|MHG|HAM|Rhein-Neckar Air
+R|65|765.11|20150313|20150321|13|2|Haruki Murakami|Hamburg Flughafen|Aarhus Flughafen|Europcar
+H|66|424.04|20150313|20150317|13|2|Haruki Murakami|Thomas Hotel Spa & Lifestyle|Husum
+H|67|413.03|20150318|20150321|13|2|Haruki Murakami|Radisson Blu Scandinavia|Aarhus
+F|68|245.00|20150321|20150321|13|2|Haruki Murakami|AAR|BER|Scandinavian Airlines
+F|69|165.00|20150321|20150321|13|2|Haruki Murakami|BER|MHG|Rhein-Neckar Air
+F|1|2099.0|20150216|20150216|1|1|Astrid Lindgren|FRA|SFO|Lufthansa
+H|2|1284.0|20150216|20150222|1|1|Astrid Lindgren|Ritz-Carlton|Halfmoon Bay
+R|3|299.0|20150216|20150222|1|1|Astrid Lindgren|San Francisco International Airport|San Francisco International Airport|Hertz
+F|4|300.0|20150222|20150222|1|1|Astrid Lindgren|SFO|PHL|United Airlines
+H|5|390.0|20150222|20150225|1|1|Astrid Lindgren|Courtyard Devon|Wayne
+R|6|119.0|20150222|20150225|1|1|Astrid Lindgren|Philadelphia International Airport|Philadelphia International Airport|Budget
+F|7|250.49|20150225|20150225|1|1|Astrid Lindgren|PHL|YUL|AirCanada
+H|8|360.36|20150225|20150228|1|1|Astrid Lindgren|L'Hotel Montreal|Montreal
+F|9|1850.0|20150228|20150301|1|1|Astrid Lindgren|YUL|FRA|Air Canada
+F|10|1799.0|20150402|20150402|2|1|Astrid Lindgren|FRA|YUL|Lufthansa
+H|11|245.0|20150402|20150404|2|1|Astrid Lindgren|L'Hotel Montreal|Montreal
+F|12|299.0|20150404|20150404|2|1|Astrid Lindgren|YUL|PHL|Delta Airlines
+H|13|476.0|20150405|20150408|2|1|Astrid Lindgren|Courtyard Devon|Wayne
+R|14|166.0|20150404|20150408|2|1|Astrid Lindgren|Philadelphia International Airport|Philadelphia International Airport|Budget
+F|15|260.49|20150408|20150408|2|1|Astrid Lindgren|PHL|SFO|Southwest Airlines
+H|16|510.36|20150408|20150412|2|1|Astrid Lindgren|Crowne Plaza|PaloAlto
+R|17|300.0|20150408|20150412|2|1|Astrid Lindgren|San Francisco International Airport|San Francisco International Airport|Avis
+F|18|133.2|20150412|20150412|2|1|Astrid Lindgren|SFO|SAN|Virgin America
+R|19|111.25|20150412|20150415|2|1|Astrid Lindgren|San Diego International Airport|Los Angeles International Airport|Avis
+H|20|377.36|20150412|20150415|2|1|Astrid Lindgren|Grand Pacific|Carlsbad
+F|21|2594.21|20150415|20150416|2|1|Astrid Lindgren|LAX|FRA|Lufthansa
+F|22|2332.21|20150501|20150502|3|1|Astrid Lindgren|FRA|PVG|Lufthansa
+H|23|1101.03|20150502|20150510|3|1|Astrid Lindgren|Shanghai Marriott|Shanghai
+F|24|2463.02|20150510|20150510|3|1|Astrid Lindgren|PVG|FRA|Lufthansa
+F|25|167.01|20150301|20150301|4|1|Astrid Lindgren|FRA|VIE|Austrian Airlines
+R|26|65.01|20150301|20150302|4|1|Astrid Lindgren|Wien-Schwechat Flughafen|Wien-Schwechat Flughafen|Sixt
+H|27|199.99|20150301|20150302|4|1|Astrid Lindgren|Hotel Kummer|Wien
+F|28|167.01|20150302|20150302|4|1|Astrid Lindgren|VIE|FRA|Austrian Airlines
+F|77|2504.01|20150309|20150309|16|3|Theodor Fontane|MUC|PHX|Lufthansa
+R|78|423.01|20150309|20150313|16|3|Theodor Fontane|Phoenix Sky Harbor Int'l Airport|McCarran Intl Airport, Las Vegas|Avis
+H|79|253.87|20150309|20150311|16|3|Theodor Fontane|Little America|Flagstaff
+H|80|951.11|20150311|20150313|16|3|Theodor Fontane|Bellagio|Las Vegas
+F|81|3104.01|20150313|20150314|16|3|Theodor Fontane|LAS|FRA|Air Canada
+F|82|2892.04|20150904|20150905|17|5|Jane Austen|FRA|GRU|Lufthansa
+F|83|234.61|20150905|20150905|17|5|Jane Austen|GRU|POA|TAM Linhas Aereas
+R|84|1345.72|20150905|20150917|17|5|Jane Austen|Porto Alegre Airport|Porto Alegre Airport|Avis
+H|85|2986.12|20150905|20150917|17|5|Jane Austen|Plaza Sao Rafael|Porto Alegre
+F|86|224.13|20150917|20150917|17|5|Jane Austen|POA|GRU|TAM Linhas Aereas
+F|87|2674.34|20150917|20150918|17|5|Jane Austen|GRU|FRA|Lufthansa
+F|88|3112.12|20151012|20151012|18|7|Lew Nikolajewitsch Tolstoi|MUC|LAX|Delta Airlines
+R|89|212.62|20151012|20151016|18|7|Lew Nikolajewitsch Tolstoi|Los Angeles Airport|San Diego Airport|Enterprise
+H|90|813.42|20151012|20151016|18|7|Lew Nikolajewitsch Tolstoi|Four Seasons Residence Club|Carlsbad
+F|91|256.42|20151016|20151016|18|7|Lew Nikolajewitsch Tolstoi|SAN|ATL|Delta Airlines
+H|92|430.31|20151016|20151018|18|7|Lew Nikolajewitsch Tolstoi|Hilton|Atlanta
+F|93|215.78|20151018|20151018|18|7|Lew Nikolajewitsch Tolstoi|ATL|YYZ|Air Canada
+R|94|634.65|20151018|20151023|18|7|Lew Nikolajewitsch Tolstoi|Toronto Airport|Montreal Airport|Hertz
+H|95|1013.99|20151018|20151023|18|7|Lew Nikolajewitsch Tolstoi|Residence Inn Water's Edge|Kingston
+F|96|2998.65|20151023|20151024|18|7|Lew Nikolajewitsch Tolstoi|YUL|FRA|Air Canada
+R|97|987.54|20150711|20150802|19|9|Simone de Beauvoir|Mannheim Neckarau|Göteborg City|Europcar
+H|98|483.50|20150711|20150714|19|9|Simone de Beauvoir|Steigenberger Grand Hotel|Leipzig
+H|99|1000.0|20150714|20150718|19|9|Simone de Beauvoir|Hotel Adlon Kempinski|Berlin
+H|100|996.23|20150718|20150722|19|9|Simone de Beauvoir|The Fontenay|Hamburg
+H|101|1269.74|20150722|20150724|19|9|Simone de Beauvoir|Marriott Hotel|Kopenhagen
+H|102|511.23|20150724|20150728|19|9|Simone de Beauvoir|Scandic Elmia|Jönköping
+H|103|1513.92|20150728|20150801|19|9|Simone de Beauvoir|Grand Hotel Stockholm|Stockholm
+H|104|221.0|20150801|20150802|19|9|Simone de Beauvoir|Upper House|Göteborg
+F|105|199.64|20150802|20150802|19|9|Simone de Beauvoir|GOT|FRA|Scandinavian Airlines
+R|106|52.45|20150802|20150802|19|9|Simone de Beauvoir|Frankfurt Flughafen|Mannheim Neckarau|Europcar

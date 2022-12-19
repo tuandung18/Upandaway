@@ -6,9 +6,25 @@
 #include<algorithm>
 #include<myqtablewidgetitem.h>
 #include<qstring.h>
-
-
-
+#include <nlohmann/json.hpp>
+#include <rapidjson/rapidjson.h>
+#include <memory>
+#include <rapidjson/document.h>
+using json = nlohmann::json;
+using namespace rapidjson;
+#define bType daten[0]
+#define bId stoi(daten[1])
+#define bPrice stod(daten[2])
+#define bFromDate daten[3]
+#define bToDate daten[4]
+#define bTravelID stol(daten[5])
+#define bKundenID stol(daten[6])
+#define bKundenName daten[7]
+#define loop(size) for(int i{}; i<size; i++)
+#define name a[QString("name")].toString()
+#define country a[QString("iso_country")].toString()
+#define muni a[QString("municipality")].toString()
+#define code a[QString("iata_code")].toString()
 
 travelAgencyUI::travelAgencyUI(QWidget *parent) :
     QMainWindow(parent),
@@ -24,105 +40,24 @@ travelAgencyUI::~travelAgencyUI()
 {
     delete ui;
 }
-void travelAgencyUI::readFile(string sourceName)
+
+void travelAgencyUI::readJsonFile(string sourceName)
 {
-    ifstream source;
-    string line;
-    int lineNumber = 0;
-    source.open(sourceName.c_str(), ios:: in);
-    if (!source) {
-        cerr << sourceName << " kann nicht geoeffnet werden!\n";
-        exit(-1);
+    QFile file(QString::fromStdString(sourceName));
+    file.open (QIODevice::ReadOnly | QIODevice::Text);
+    QString json_string;
+    json_string = file.readAll();
+    file.close();
+    auto docu = QJsonDocument::fromJson(json_string.toUtf8());
+    for(auto a: docu.array()){
+
+        Airport* airport = new Airport(name,country,muni,code);
+        airports.push_back(airport);
+        airportMap.insert(code,airport);
     }
-    else {
-        cout << "Opening file succesful" << endl;
-    }
-
-    int countF=0, countH=0, countR=0;
-    double priceF=0.0,priceH=0.0,priceR=0.0;
-
-    while(getline(source,line)){
-        int numberOfCol = 0;
-        lineNumber++;
-        vector<string> daten;
-        string temp;
-        for  (char const &ch: line) {
-            if(&ch == &line.back()){
-                temp.push_back(ch);
-                daten.push_back(temp);
-                temp.clear();
-                numberOfCol++;
-            }
-            if(ch== '|' ){
-                daten.push_back(temp);
-                temp.clear();
-                numberOfCol++;
-                continue;
-            }
-            temp.push_back(ch);
-
-        }
-
-        string typ = daten[0];
-        if(typ=="H" && numberOfCol!=7)
-            throw invalid_argument("Number of attributes is not enough at line " + to_string(lineNumber));
-        else if( (typ=="F" || typ=="R") && numberOfCol!=8)
-        {
-            throw invalid_argument("Number of attributes is not enough at line " + to_string(lineNumber));
-        }
-        if(typ=="F"){
-            Booking* booking = new FlightBooking (daten[5],daten[6],daten[7]);
-            if(daten[5].size()!=3 || daten[6].size()!=3)
-                throw invalid_argument("Wrong airport names at line " + to_string(lineNumber));
-
-            booking->setId(stoi( daten[1]));
-            booking->setFromDate(daten[3]);
-            booking->setToDate(daten[4]);
-            string tempPrice = daten[2];
-
-            auto it = tempPrice.begin();/* this block is to check double type*/
-            while (it != tempPrice.end() && (std::isdigit(*it) || *it == '.')) {
-                it++;
-            }
-            if(tempPrice.empty() || it != tempPrice.end())
-                throw invalid_argument("Wrong price type at line " + to_string(lineNumber));
-
-            booking->setPrice(stod(daten[2]));
-            bookings.push_back(booking);
-            countF++;
-            priceF+=booking->getPrice();
-            //            cout<<booking->showDetails()<<endl;
-        }
-        if(typ=="H"){
-            Booking* booking = new HotelBooking (daten[5],daten[6]);
-            booking->setId(stoi( daten[1]));
-            booking->setFromDate(daten[3]);
-            booking->setToDate(daten[4]);
-            booking->setPrice(stod(daten[2]));
-            bookings.push_back(booking);
-            countH++;
-            priceH+=booking->getPrice();
-            //            cout<<booking->showDetails()<<endl;
-        }
-        if(typ=="R"){
-            Booking* booking = new RentalCarReservation (daten[5],daten[6],daten[7]);
-            booking->setId(stoi( daten[1]));
-            booking->setFromDate(daten[3]);
-            booking->setToDate(daten[4]);
-            booking->setPrice(stod(daten[2]));
-            bookings.push_back(booking);
-            countR++;
-            priceR+=booking->getPrice();
-            //            cout<<booking->showDetails()<<endl;
-        }
-
-
-
-    }
-    source.close();
-    cout << "Es wurden " + to_string(countF) + " Flugbuchungen im Wert von " + to_string(priceF) + " Euro und " + to_string(countR) + " Mietwagenbuchungen im Wert von " + to_string(priceR) + " Euro und " + to_string(countH) + " Hotelreservierungen im Wert von " + to_string(priceH) + " Euros angelegt."<<endl;
 }
-string travelAgencyUI::readFile2(string sourceName)
+
+string travelAgencyUI::readFile(string sourceName)
 {
     ifstream source;
     string line;
@@ -136,8 +71,7 @@ string travelAgencyUI::readFile2(string sourceName)
         cout << "Opening file succesfully" << endl;
     }
 
-    int countF=0, countH=0, countR=0, countTravel = 0, countCustomer = 0;
-    double priceF=0.0,priceH=0.0,priceR=0.0;
+
 
     while(getline(source,line)){
         int numberOfCol = 0;
@@ -161,9 +95,9 @@ string travelAgencyUI::readFile2(string sourceName)
 
         }
 
-        if(findBooking(stol(daten[1]))==nullptr) //check if booking with this id exists
+        if(findBooking(bId)==nullptr) //check if booking with this id exists
         {
-            string typ = daten[0];
+            string typ =bType;
             if(typ=="H" && numberOfCol!=10)
                 throw invalid_argument("Number of attributes is not enough at line " + to_string(lineNumber));
             else if( (typ=="F" || typ=="R") && numberOfCol!=11)
@@ -172,54 +106,23 @@ string travelAgencyUI::readFile2(string sourceName)
             }
             if(typ=="F"){
 
-                Booking* booking = new FlightBooking (daten[8],daten[9],daten[10]);
-                if(daten[8].size()!=3 || daten[9].size()!=3)
-                    throw invalid_argument("Wrong airport names at line " + to_string(lineNumber));
-                booking->setType(typ);
-                booking->setId(stoi( daten[1]));
-                booking->setFromDate(daten[3]);
-                booking->setToDate(daten[4]);
-                booking->setTravelID(5);
-                string tempPrice = daten[2];
-
-                auto it = tempPrice.begin();/* this block is to check double type*/
-                while (it != tempPrice.end() && (std::isdigit(*it) || *it == '.')) {
-                    it++;
-                }
-                if(tempPrice.empty() || it != tempPrice.end())
-                    throw invalid_argument("Wrong price type at line " + to_string(lineNumber));
-
-                booking->setPrice(stod(daten[2]));
+                shared_ptr<Booking> booking =  make_shared<FlightBooking> (bType, bId, bPrice, bFromDate, bToDate, bTravelID,daten[8],daten[9],daten[10]);
                 bookings.push_back(booking);
                 countF++;
                 priceF+=booking->getPrice();
 
-
-                //            cout<<booking->showDetails()<<endl;
-
+                //            cout<<booking->showDetails()<<endl;u
 
             }
             if(typ=="H"){
-                Booking* booking = new HotelBooking (daten[8],daten[9]);
-                booking->setType(typ);
-                booking->setId(stoi( daten[1]));
-                booking->setFromDate(daten[3]);
-                booking->setToDate(daten[4]);
-                booking->setPrice(stod(daten[2]));
-                booking->setTravelID(5);
+                shared_ptr<Booking> booking = make_shared<HotelBooking>(bType, bId, bPrice, bFromDate, bToDate, bTravelID,daten[8],daten[9]);
                 bookings.push_back(booking);
                 countH++;
                 priceH+=booking->getPrice();
                 //            cout<<booking->showDetails()<<endl;
             }
             if(typ=="R"){
-                Booking* booking = new RentalCarReservation (daten[8],daten[9],daten[10]);
-                booking->setType(typ);
-                booking->setId(stoi( daten[1]));
-                booking->setFromDate(daten[3]);
-                booking->setToDate(daten[4]);
-                booking->setPrice(stod(daten[2]));
-                booking->setTravelID(5);
+                shared_ptr<Booking> booking = make_shared<RentalCarReservation> (bType, bId, bPrice, bFromDate, bToDate, bTravelID, daten[8],daten[9],daten[10]);
                 bookings.push_back(booking);
                 countR++;
                 priceR+=booking->getPrice();
@@ -231,23 +134,23 @@ string travelAgencyUI::readFile2(string sourceName)
              * Now we check if travelid and customerid
              * already exist
              * */
-            if(findTravel(stol(daten[5]))==nullptr)
+            if(findTravel(bTravelID)==nullptr)
             {
-                Travel* travel = new Travel(stol(daten[5]),stol(daten[6]));
+                shared_ptr <Travel> travel = make_shared<Travel> (bTravelID,bKundenID);
                 countTravel++;
                 allTravels.push_back(travel);
             }
 
-            findTravel(stol(daten[5]))->addBooking(findBooking(stol(daten[1])));
+            findTravel(bTravelID)->addBooking(findBooking(bId));
 
-            if(findCustomer(stol(daten[6]))==nullptr)
+            if(findCustomer(bKundenID)==nullptr)
             {
-                Customer* customer = new Customer(stol(daten[6]),daten[7]);
+               shared_ptr <Customer>customer = make_shared<Customer>(bKundenID,bKundenName);
                 countCustomer++;
                 allCustomers.push_back(customer);
             }
 
-            findCustomer(stol(daten[6]))->addTravel(findTravel(stol(daten[5])));
+            findCustomer(bKundenID)->addTravel(findTravel(bTravelID));
 
         }
 
@@ -265,7 +168,12 @@ string travelAgencyUI::readFile2(string sourceName)
     return result;
 }
 
-void travelAgencyUI::setBookings(const vector<Booking *> &newBookings)
+const vector<shared_ptr<Booking> > &travelAgencyUI::getBookings() const
+{
+    return bookings;
+}
+
+void travelAgencyUI::setBookings(const vector<shared_ptr<Booking >> &newBookings)
 {
     bookings = newBookings;
 }
@@ -282,7 +190,7 @@ void travelAgencyUI::on_readFile_clicked()
     QMessageBox* messageBox = new QMessageBox;
     try{
 
-        messageBox->about(this,"Datei erfolgreich eingelesen", QString::fromStdString(readFile2(fileName.toStdString())));
+        messageBox->about(this,"Datei erfolgreich eingelesen", QString::fromStdString(readFile(fileName.toStdString())));
 
         delete pop;
     }
@@ -393,7 +301,7 @@ void travelAgencyUI::setTravelAgency(TravelAgency *newTravelAgency)
     travelAgency = newTravelAgency;
 }
 
-Booking *travelAgencyUI::findBooking(long id)
+shared_ptr< Booking>travelAgencyUI::findBooking(long id)
 {
     for(auto &b : bookings){
         if(b->getId()==id)
@@ -402,7 +310,7 @@ Booking *travelAgencyUI::findBooking(long id)
     return nullptr;
 }
 
-Travel *travelAgencyUI::findTravel(long id)
+shared_ptr<Travel>travelAgencyUI::findTravel(long id)
 {
     for(auto &t : allTravels){
         if(t->getId()==id)
@@ -411,13 +319,18 @@ Travel *travelAgencyUI::findTravel(long id)
     return nullptr;
 }
 
-Customer *travelAgencyUI::findCustomer(long id)
+shared_ptr<Customer> travelAgencyUI::findCustomer(long id)
 {
     for(auto &c : allCustomers){
         if(c->getId()==id)
             return c;
     }
     return nullptr;
+}
+
+void travelAgencyUI::setAirportName(FlightBooking *f, QMultiMap<QString,Airport*> map)
+{
+
 }
 
 
@@ -446,7 +359,7 @@ void travelAgencyUI::on_Customer_clicked()
         }
         else{
 
-            Customer* customer = findCustomer(id->getSavedID());
+            shared_ptr<Customer> customer = findCustomer(id->getSavedID());
             ui->customerName->setText(QString::fromStdString(customer->getName()));
             for(auto &t : customer->getTravelList())
             {
@@ -492,7 +405,7 @@ void travelAgencyUI::on_tableWidget_cellDoubleClicked(int row, int column)
     else{
         tableWidget2->clearContents();
 
-        Travel* travel = findTravel(travelID.toLong());
+        shared_ptr<Travel> travel = findTravel(travelID.toLong());
 
         for(auto &b : travel->getTravelBookings())
         {
@@ -516,15 +429,30 @@ void travelAgencyUI::on_tableWidget_2_cellDoubleClicked(int row, int column)
 {
     QTableWidget* tableWidget3 = ui->tableWidget_3;
     QTableWidget* tableWidget4 = ui->tableWidget_4;
+    QTableWidget* tableWidget5 = ui->tableWidget_5;
     QString bookingID = ui->tableWidget_2->item(row,0)->text();
-    Booking* booking = findBooking(bookingID.toLong());
-    if(booking->getType().back()=='F' or booking->getType().back()=='R')
+    shared_ptr<Booking> booking = findBooking(bookingID.toLong());
+    if( booking->getType().back()=='R')
     {
         ui->tabWidget->setCurrentIndex(0);
         for(int i = 0; i<tableWidget3->rowCount();i++)
         {
 
             tableWidget3->setItem(i,0,new MyQTableWidgetItem(QString::fromStdString(booking->getDetails().at(i))));
+        }
+    }
+    if(booking->getType().back()=='F')
+    {
+        ui->tabWidget->setCurrentIndex(2);
+        for(int i = 0; i<tableWidget5->rowCount();i++)
+        {
+
+            if(i==4 or i == 6){
+                tableWidget5->setItem(i,0,new QTableWidgetItem(airportMap.value(QString::fromStdString(booking->getDetails().at(i-1)))->getAirportName()));
+            }
+            else{
+                tableWidget5->setItem(i,0,new QTableWidgetItem(QString::fromStdString(booking->getDetails().at(i))));
+            }
         }
     }
     if(booking->getType().back()=='H')
@@ -544,16 +472,30 @@ void travelAgencyUI::on_tableWidget_2_cellDoubleClicked(int row, int column)
 
 void travelAgencyUI::on_pushButton_clicked()
 {
-    if(ui->tableWidget_3->item(0,0)!=nullptr)
-    {Booking* b1 = findBooking(ui->tableWidget_3->item(0,0)->text().toLong());
+    if(ui->tableWidget_5->item(0,0)!=nullptr)
+    {
+        shared_ptr<Booking> b1 = findBooking(ui->tableWidget_5->item(0,0)->text().toLong());
         if(b1->getType().back()=='F')
         {
-            b1->setFromDate(ui->tableWidget_3->item(1,0)->text().toStdString());
-            b1->setToDate(ui->tableWidget_3->item(2,0)->text().toStdString());
-            b1->setFromDestination(ui->tableWidget_3->item(3,0)->text().toStdString());
-            b1->setToDestination(ui->tableWidget_3->item(4,0)->text().toStdString());
-            b1->setAirline(ui->tableWidget_3->item(5,0)->text().toStdString());
-            b1->setPrice(ui->tableWidget_3->item(6,0)->text().toDouble());
+            b1->setFromDate(ui->tableWidget_5->item(1,0)->text().toStdString());
+            b1->setToDate(ui->tableWidget_5->item(2,0)->text().toStdString());
+            auto q1 = airportMap.find(ui->tableWidget_5->item(3,0)->text());
+            if(q1!=airportMap.end()){
+                b1->setStartAirport(q1.value()->getAirportName());
+                b1->setFromDestination(ui->tableWidget_5->item(3,0)->text().toStdString());
+                ui->tableWidget_5->setItem(4,0,new MyQTableWidgetItem(q1.value()->getAirportName()));
+            }
+            else {
+
+                ui->tableWidget_5->setItem(4,0,new MyQTableWidgetItem("Unavailable iata-code"));
+                ui->tableWidget_5->item(4,0)->setForeground(QBrush(QColor(255, 0, 0)));
+            }
+            auto q2 = airportMap.find(ui->tableWidget_5->item(5,0)->text());
+            if(q2!=airportMap.end())
+                b1->setStartAirport(q2.value()->getAirportName());
+            b1->setToDestination(ui->tableWidget_5->item(5,0)->text().toStdString());
+            b1->setAirline(ui->tableWidget_5->item(7,0)->text().toStdString());
+            b1->setPrice(ui->tableWidget_5->item(8,0)->text().toDouble());
 
         }
         if(b1->getType().back()=='R')
@@ -570,7 +512,7 @@ void travelAgencyUI::on_pushButton_clicked()
 
     if(ui->tableWidget_4->item(0,0)!=nullptr)
     {
-        Booking* b2 = findBooking(ui->tableWidget_4->item(0,0)->text().toLong());
+        shared_ptr<Booking> b2 = findBooking(ui->tableWidget_4->item(0,0)->text().toLong());
         if(b2->getType().back()=='H')
         {
             b2->setFromDate(ui->tableWidget_4->item(1,0)->text().toStdString());
@@ -580,6 +522,7 @@ void travelAgencyUI::on_pushButton_clicked()
             b2->setPrice(ui->tableWidget_4->item(5,0)->text().toDouble());
         }
     }
+
 
 }
 void swap (QTableWidgetItem* row1, QTableWidgetItem* row2)
@@ -650,4 +593,14 @@ void travelAgencyUI::on_pushButton_9_clicked()
 }
 
 
+
+
+void travelAgencyUI::on_readAirport_clicked()
+{
+    QFileDialog* q = new QFileDialog;
+    QString fileName = q->getOpenFileName();
+    readJsonFile(fileName.toStdString());
+
+    delete q;
+}
 

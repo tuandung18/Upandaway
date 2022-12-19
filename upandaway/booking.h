@@ -17,6 +17,8 @@ protected:
 public:
     Booking();
     Booking(int id, double price, const string &fromDate, const string &toDate);
+    Booking(const string &type,int id, double price, const string &fromDate, const string &toDate, long travelID);
+
     virtual string showDetails() = 0;
     virtual vector<string> getDetails() = 0;
     virtual void setFromDestination(const string &newFromDestination);
@@ -28,7 +30,10 @@ public:
     virtual void setCompany(const string &newCompany);
 
     virtual void setHotel(const string &newHotel);
+
     virtual void setTown(const string &newTown);
+    virtual void setStartAirport(const QString &newStartAirport);
+    virtual void setEndAirport(const QString &newEndAirport);
 
 
 

@@ -1,5 +1,6 @@
 #ifndef TRAVELAGENCYUI_H
 #define TRAVELAGENCYUI_H
+#include "airport.h"
 #include "customer.h"
 #include <popup.h>
 #include <QMainWindow>
@@ -16,6 +17,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include<QTableWidget>
+#include<QMap>
+#include<flightbooking.h>
 using namespace std;
 namespace Ui {
 class travelAgencyUI;
@@ -28,21 +31,26 @@ class travelAgencyUI : public QMainWindow
 public:
     explicit travelAgencyUI(QWidget *parent = nullptr);
     ~travelAgencyUI();
-    void readFile(string sourceName);
-    string readFile2(string sourceName);
+    void readJsonFile(string sourceName);
+    string readFile(string sourceName);
     void readBinaryFile(string sourceName);
-    const vector<Booking *> &getBookings() const;
-    void setBookings(const vector<Booking *> &newBookings);
+    const vector<shared_ptr<Booking>> &getBookings() const;
+    void setBookings(const vector<shared_ptr<Booking> > &newBookings);
     void changeWindowName();
     void setTravelAgency(TravelAgency *newTravelAgency);
-    Booking* findBooking (long id);
-    Travel* findTravel(long id);
-    Customer* findCustomer(long id);
+    shared_ptr<Booking> findBooking(long id);
+    shared_ptr<Travel> findTravel(long id);
+    shared_ptr<Customer> findCustomer(long id);
+    void setAirportName(FlightBooking* f, QMultiMap<QString, Airport *> map);
+    int countF=0, countH=0, countR=0, countTravel = 0, countCustomer = 0;
+    double priceF=0.0,priceH=0.0,priceR=0.0;
+
 
 
 
 
     void sort(int columm, QTableWidget* table);
+
 private slots:
     void on_readFile_clicked();
 
@@ -84,12 +92,16 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_readAirport_clicked();
+
 private:
     Ui::travelAgencyUI *ui;
+    vector<Airport*> airports;
     TravelAgency* travelAgency;
-    vector<Booking*> bookings;
-    vector<Customer*> allCustomers;
-    vector<Travel*> allTravels;
+    vector<shared_ptr<Booking>> bookings;
+    vector<shared_ptr< Customer>> allCustomers;
+    vector<shared_ptr<Travel>> allTravels;
+    QMultiMap<QString,Airport*> airportMap;
 };
 
 #endif // TRAVELAGENCYUI_H

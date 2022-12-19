@@ -82,11 +82,26 @@ Booking::Booking()
 
 }
 
-Booking::Booking(int id, double price, const string &fromDate, const string &toDate) : id(id),
+Booking::Booking(int id, double price, const string &fromDate, const string &toDate) :
+
+    id(id),
     price(price),
     fromDate(fromDate),
     toDate(toDate)
 {}
+
+Booking::Booking(const string &type, int id, double price, const string &fromDate, const string &toDate, long travelID) :
+    type(type),
+    id(id),
+    travelID(travelID),
+    price(price),
+    fromDate(fromDate),
+    toDate(toDate)
+
+
+{
+
+}
 
 void Booking::setFromDestination(const string &newFromDestination)
 {
@@ -124,6 +139,16 @@ void Booking::setHotel(const string &newHotel)
 }
 
 void Booking::setTown(const string &newTown)
+{
+
+}
+
+void Booking::setStartAirport(const QString &newStartAirport)
+{
+
+}
+
+void Booking::setEndAirport(const QString &newEndAirport)
 {
 
 }

@@ -12,6 +12,8 @@ private:
 public:
     HotelBooking();
     HotelBooking(const string &hotel, const string &town);
+    HotelBooking(string type, int id, double price, string fromDate, string toDate, long travelID,const string &hotel, const string &town);
+
     string showDetails() override;
     std::vector<string> getDetails() override;
 

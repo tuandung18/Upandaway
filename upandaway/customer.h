@@ -8,16 +8,16 @@ class Customer
 private:
     long id;
     string name;
-    vector<Travel* > travelList;
+    vector<shared_ptr<Travel> > travelList;
 public:
     Customer(long id, string name);
-    void addTravel(Travel* travel);
+    void addTravel(shared_ptr<Travel> travel);
     long getId() const;
     void setId(long newId);
     string getName() const;
     void setName(const string &newName);
-    vector<Travel *> getTravelList() const;
-    void setTravelList(const vector<Travel *> &newTravelList);
+    vector<shared_ptr<Travel>> getTravelList() const;
+    void setTravelList(const vector<shared_ptr<Travel>> &newTravelList);
     bool searchTravel(long id);
 };
 

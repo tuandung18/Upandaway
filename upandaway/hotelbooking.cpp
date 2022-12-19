@@ -50,3 +50,9 @@ HotelBooking::HotelBooking(const string &hotel, const string &town)
       hotel(hotel),
       town(town)
 {}
+
+HotelBooking::HotelBooking(string type, int id, double price, string fromDate, string toDate, long travelID, const string &hotel, const string &town) :
+    Booking(type, id, price, fromDate, toDate, travelID ),
+    hotel(hotel),
+    town(town)
+{}

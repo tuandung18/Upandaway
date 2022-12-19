@@ -20,12 +20,12 @@ void Travel::setId(long newId)
     id = newId;
 }
 
-vector<Booking *> Travel::getTravelBookings() const
+vector<shared_ptr<Booking>> Travel::getTravelBookings() const
 {
     return travelBookings;
 }
 
-void Travel::setTravelBookings(const vector<Booking *> &newTravelBookings)
+void Travel::setTravelBookings(const vector<shared_ptr<Booking>> &newTravelBookings)
 {
     travelBookings = newTravelBookings;
 }
@@ -43,9 +43,9 @@ bool Travel::searchBooking(long id)
     }
     return false;
 }
-Booking* Travel::soonestBooking()
+shared_ptr<Booking> Travel::soonestBooking()
 {
-    Booking* soonestDBooking = travelBookings.front();
+    shared_ptr<Booking> soonestDBooking = travelBookings.front();
     for(auto &b : travelBookings)
     {
         if(stoi(b->getFromDate())<stoi(soonestDBooking->getFromDate()))
@@ -53,9 +53,9 @@ Booking* Travel::soonestBooking()
     }
     return soonestDBooking;
 }
-Booking* Travel::latestBooking()
+shared_ptr<Booking>Travel::latestBooking()
 {
-    Booking* latestBooking = travelBookings.front();
+    shared_ptr<Booking> latestBooking = travelBookings.front();
     for(auto &b : travelBookings)
     {
         if(stoi(b->getToDate())>stoi(latestBooking->getToDate()))
@@ -63,7 +63,7 @@ Booking* Travel::latestBooking()
     }
     return latestBooking;
 }
-void Travel::addBooking(Booking *booking)
+void Travel::addBooking(shared_ptr<Booking>booking)
 {
     if(!searchBooking(booking->getId()))
         travelBookings.push_back(booking);

@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT       += testlib
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TEMPLATE = app
@@ -8,6 +8,8 @@ CONFIG -= app_bundle
 
 
 SOURCES += \
+        Test.cpp \
+        airport.cpp \
         booking.cpp \
         customer.cpp \
         flightbooking.cpp \
@@ -21,7 +23,10 @@ SOURCES += \
         travelagency.cpp \
         travelagencyui.cpp
 
+
 HEADERS += \
+    Test.h \
+    airport.h \
     booking.h \
     customer.h \
     flightbooking.h \

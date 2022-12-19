@@ -62,3 +62,11 @@ RentalCarReservation::RentalCarReservation(const string &pickupLocation, const s
       returnLocation(returnLocation),
       company(company)
 {}
+
+RentalCarReservation::RentalCarReservation(string type, int id, double price, string fromDate, string toDate, long travelID, const string &pickupLocation, const string &returnLocation, const string &company):
+    Booking(type, id, price, fromDate, toDate, travelID ),
+    pickupLocation(pickupLocation),
+    returnLocation(returnLocation),
+    company(company)
+
+{}

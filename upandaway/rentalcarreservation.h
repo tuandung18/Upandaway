@@ -13,6 +13,8 @@ public:
 
     RentalCarReservation();
     RentalCarReservation(const string &pickupLocation, const string &returnLocation, const string &company);
+    RentalCarReservation(string type, int id, double price, string fromDate, string toDate, long travelID, const string &pickupLocation, const string &returnLocation, const string &company);
+
     string showDetails() override;
     std::vector<string> getDetails() override;
 
