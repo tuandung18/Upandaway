@@ -639,6 +639,23 @@ void travelAgencyUI::on_addCustomer_clicked()
 
 void travelAgencyUI::on_addBooking_clicked()
 {
+    /*
+     * TODO:
+     * 1. Ask for customerID
+     * 2. If exists, ask for travelID and ask booking to it
+     * 3. If not, just use the last added or actual customerID
+     * */
+
+//    idInput customInput;
+//    customInput.show();
+//    customInput.exec();
+//    if(findCustomer(customInput.getSavedID())){
+//    }
+
+//    idInput travelInput;
+//    travelInput.show();
+//    travelInput.exec();
+//    travelInput.getSavedID();
     QSharedPointer<BookingsInput> bookingInput(new BookingsInput);
     bookingInput->show();
     bookingInput->exec();

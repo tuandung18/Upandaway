@@ -2,6 +2,7 @@
 #include "flightbooking.h"
 #include "ui_bookingchoices.h"
 #include <QString>
+#include <iostream>
 #define flightFromDate ui->tableWidget_5->item(1,0)->text().toStdString()
 #define flightToDate ui->tableWidget_5->item(2,0)->text().toStdString()
 #define flightFromLoc ui->tableWidget_5->item(3,0)->text().toStdString()
@@ -48,13 +49,33 @@ void BookingsInput::on_pushButton_clicked()
 
 
     if(ui->tabWidget->currentIndex()==2){
-        setNewFlight( std::make_shared<FlightBooking>("F",0, stod(flightPrice),flightFromDate,flightToDate,0,flightFromLoc,flightToLoc,flightCompany));
+        try{
+
+            setNewFlight( std::make_shared<FlightBooking>("F",0, stod(flightPrice),flightFromDate,flightToDate,0,flightFromLoc,flightToLoc,flightCompany));
+        }catch(exception &e){
+            cerr<<"SIGSEGV caught"<<endl;
+            setNewFlight(nullptr);
+        }
+
     }
     if(ui->tabWidget->currentIndex()==1){
-        setNewHotel(make_shared<HotelBooking>("H",0,stod(hotelPrice),hotelFromDate,hotelToDate,0,hotelName,hotelTown));
+        try{
+            setNewHotel(make_shared<HotelBooking>("H",0,stod(hotelPrice),hotelFromDate,hotelToDate,0,hotelName,hotelTown));
+
+        }catch(exception &e){
+            cerr<<"SIGSEGV caught"<<endl;
+            setNewFlight(nullptr);
+        }
+
     }
+
     else {
-        setNewCar(make_shared<RentalCarReservation>("R",0,stod(carPrice),carStartDate,carToDate,0,carStartLoc,carToLoc,carCompany));
+        try{
+            setNewCar(make_shared<RentalCarReservation>("R",0,stod(carPrice),carStartDate,carToDate,0,carStartLoc,carToLoc,carCompany));
+        }catch(exception &e){
+            cerr<<"SIGSEGV caught"<<endl;
+            setNewFlight(nullptr);
+        }
     }
     close();
 }

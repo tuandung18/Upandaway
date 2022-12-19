@@ -69,6 +69,9 @@ public:
         tableWidget_3->setVerticalHeaderItem(5, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         tableWidget_3->setVerticalHeaderItem(6, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        __qtablewidgetitem8->setFlags(Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
+        tableWidget_3->setItem(0, 0, __qtablewidgetitem8);
         tableWidget_3->setObjectName("tableWidget_3");
 
         horizontalLayout->addWidget(tableWidget_3);
@@ -81,22 +84,22 @@ public:
         tableWidget_4 = new QTableWidget(tab_2);
         if (tableWidget_4->columnCount() < 1)
             tableWidget_4->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
-        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tableWidget_4->setHorizontalHeaderItem(0, __qtablewidgetitem9);
         if (tableWidget_4->rowCount() < 6)
             tableWidget_4->setRowCount(6);
-        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
-        tableWidget_4->setVerticalHeaderItem(0, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
-        tableWidget_4->setVerticalHeaderItem(1, __qtablewidgetitem10);
+        tableWidget_4->setVerticalHeaderItem(0, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
-        tableWidget_4->setVerticalHeaderItem(2, __qtablewidgetitem11);
+        tableWidget_4->setVerticalHeaderItem(1, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
-        tableWidget_4->setVerticalHeaderItem(3, __qtablewidgetitem12);
+        tableWidget_4->setVerticalHeaderItem(2, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
-        tableWidget_4->setVerticalHeaderItem(4, __qtablewidgetitem13);
+        tableWidget_4->setVerticalHeaderItem(3, __qtablewidgetitem13);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
-        tableWidget_4->setVerticalHeaderItem(5, __qtablewidgetitem14);
+        tableWidget_4->setVerticalHeaderItem(4, __qtablewidgetitem14);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        tableWidget_4->setVerticalHeaderItem(5, __qtablewidgetitem15);
         tableWidget_4->setObjectName("tableWidget_4");
 
         verticalLayout_3->addWidget(tableWidget_4);
@@ -107,34 +110,34 @@ public:
         tableWidget_5 = new QTableWidget(tab_3);
         if (tableWidget_5->columnCount() < 1)
             tableWidget_5->setColumnCount(1);
-        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
-        tableWidget_5->setHorizontalHeaderItem(0, __qtablewidgetitem15);
+        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
+        tableWidget_5->setHorizontalHeaderItem(0, __qtablewidgetitem16);
         if (tableWidget_5->rowCount() < 9)
             tableWidget_5->setRowCount(9);
-        QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(0, __qtablewidgetitem16);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(1, __qtablewidgetitem17);
+        tableWidget_5->setVerticalHeaderItem(0, __qtablewidgetitem17);
         QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(2, __qtablewidgetitem18);
+        tableWidget_5->setVerticalHeaderItem(1, __qtablewidgetitem18);
         QTableWidgetItem *__qtablewidgetitem19 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(3, __qtablewidgetitem19);
+        tableWidget_5->setVerticalHeaderItem(2, __qtablewidgetitem19);
         QTableWidgetItem *__qtablewidgetitem20 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(4, __qtablewidgetitem20);
+        tableWidget_5->setVerticalHeaderItem(3, __qtablewidgetitem20);
         QTableWidgetItem *__qtablewidgetitem21 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(5, __qtablewidgetitem21);
+        tableWidget_5->setVerticalHeaderItem(4, __qtablewidgetitem21);
         QTableWidgetItem *__qtablewidgetitem22 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(6, __qtablewidgetitem22);
+        tableWidget_5->setVerticalHeaderItem(5, __qtablewidgetitem22);
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(7, __qtablewidgetitem23);
+        tableWidget_5->setVerticalHeaderItem(6, __qtablewidgetitem23);
         QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        tableWidget_5->setVerticalHeaderItem(8, __qtablewidgetitem24);
+        tableWidget_5->setVerticalHeaderItem(7, __qtablewidgetitem24);
         QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        __qtablewidgetitem25->setFlags(Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        tableWidget_5->setItem(4, 0, __qtablewidgetitem25);
+        tableWidget_5->setVerticalHeaderItem(8, __qtablewidgetitem25);
         QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
         __qtablewidgetitem26->setFlags(Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
-        tableWidget_5->setItem(5, 0, __qtablewidgetitem26);
+        tableWidget_5->setItem(4, 0, __qtablewidgetitem26);
+        QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
+        __qtablewidgetitem27->setFlags(Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
+        tableWidget_5->setItem(5, 0, __qtablewidgetitem27);
         tableWidget_5->setObjectName("tableWidget_5");
         tableWidget_5->setGeometry(QRect(10, 10, 264, 271));
         tabWidget->addTab(tab_3, QString());
@@ -169,6 +172,11 @@ public:
         ___qtablewidgetitem6->setText(QCoreApplication::translate("BookingsInput", "Company", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tableWidget_3->verticalHeaderItem(6);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("BookingsInput", "Price", nullptr));
+
+        const bool __sortingEnabled = tableWidget_3->isSortingEnabled();
+        tableWidget_3->setSortingEnabled(false);
+        tableWidget_3->setSortingEnabled(__sortingEnabled);
+
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("BookingsInput", "Car", nullptr));
         QTableWidgetItem *___qtablewidgetitem8 = tableWidget_4->horizontalHeaderItem(0);
         ___qtablewidgetitem8->setText(QCoreApplication::translate("BookingsInput", "Value", nullptr));
@@ -206,9 +214,9 @@ public:
         QTableWidgetItem *___qtablewidgetitem24 = tableWidget_5->verticalHeaderItem(8);
         ___qtablewidgetitem24->setText(QCoreApplication::translate("BookingsInput", "Price", nullptr));
 
-        const bool __sortingEnabled = tableWidget_5->isSortingEnabled();
+        const bool __sortingEnabled1 = tableWidget_5->isSortingEnabled();
         tableWidget_5->setSortingEnabled(false);
-        tableWidget_5->setSortingEnabled(__sortingEnabled);
+        tableWidget_5->setSortingEnabled(__sortingEnabled1);
 
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QCoreApplication::translate("BookingsInput", "Flight", nullptr));
         pushButton->setText(QCoreApplication::translate("BookingsInput", "Update ", nullptr));
