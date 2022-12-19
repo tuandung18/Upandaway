@@ -1,4 +1,5 @@
 #include "travelagencyui.h"
+#include "savejson.h"
 #include "ui_travelagencyui.h"
 #include <flightbooking.h>
 #include<rentalcarreservation.h>
@@ -78,12 +79,13 @@ string travelAgencyUI::readFile(string sourceName)
         lineNumber++;
         vector<string> daten;
         string temp;
-        for  (char const &ch: line) {
+        for  (char &ch: line) {
             if(&ch == &line.back()){
-                temp.push_back(ch);
+
                 daten.push_back(temp);
                 temp.clear();
                 numberOfCol++;
+                continue;
             }
             if(ch== '|' ){
                 daten.push_back(temp);
@@ -222,78 +224,80 @@ void travelAgencyUI::on_showAllBooking_clicked()
 void travelAgencyUI::on_bookings_itemClicked(QListWidgetItem *item)
 {}
 
+void travelAgencyUI::saveToJson(){
 
+    if(bookings.empty())
+    {
+        QMessageBox* message = new QMessageBox;
+        message->about(this,QString::fromStdString("No booking"),QString::fromStdString("No booking given"));
+        delete message;
+    }
+    else{QJsonDocument jsonDocument;
+        QJsonArray flugBuchung,hotelBuchung,autoBuchung,buchungen;
+        QJsonObject list;
+        for(auto &b : bookings){
+            if(b->getType().back()=='F')
+            {
+                QJsonObject flight;
+                vector<string> detail = b->getDetails();
+                flight["airline"] = QString::fromStdString(detail[7]);
+                flight["fromDate"] = QString::fromStdString(b->getFromDate());
+                flight["fromDest"] = QString::fromStdString(detail[3]);
+                flight["id"] = QString::fromStdString(to_string(b->getId()));
+                flight["price"] = stoi(detail[8]);
+                flight["toDate"] = QString::fromStdString(b->getToDate());
+                flight["toDes"] = QString::fromStdString(detail[5]);
+                flugBuchung.push_back(flight);
+            }
+            if(b->getType().back()=='R')
+            {
+                QJsonObject car;
+                vector<string> detail = b->getDetails();
+                car["company"] = QString::fromStdString(detail[5]);
+                car["fromDate"] = QString::fromStdString(b->getFromDate());
+                car["pickupLocation"] = QString::fromStdString(detail[3]);
+                car["id"] = QString::fromStdString(to_string(b->getId()));
+                car["price"] = stoi(detail[6]);
+                car["returnLocation"] = QString::fromStdString(detail[4]);
+                car["toDate"] = QString::fromStdString(b->getToDate());
+                autoBuchung.push_back(car);
+
+            }
+            if(b->getType().back()=='H')
+            {
+                QJsonObject hotel;
+                vector<string> detail = b->getDetails();
+                hotel["fromDate"] = QString::fromStdString(b->getFromDate());
+                hotel["hotel"] = QString::fromStdString(detail[3]);
+                hotel["id"] = QString::fromStdString(to_string(b->getId()));
+                hotel["price"] = stoi(detail[5]);
+                hotel["toDate"] = QString::fromStdString(b->getToDate());
+                hotel["town"] = QString::fromStdString(detail[4]);
+                hotelBuchung.push_back(hotel);
+            }
+        }
+        list["Flugbuchungen"] = flugBuchung;
+
+        list["Mietwagenreservierungen"] = autoBuchung;
+
+        list["Hotelbuchungen"] = hotelBuchung;
+        buchungen.push_back(list);
+        jsonDocument.setArray(buchungen);
+        QFileDialog* q = new QFileDialog;
+        QString jsonFileName = q->getSaveFileName(this);
+        QFile datei(jsonFileName);
+        if(!datei.open(QIODevice::ReadWrite))
+            std::cerr<<"Datei konnte nicht geoeffnet werden"<<endl;
+        else
+            cout<<"File opened"<<endl;
+        datei.resize(0);
+        datei.write(jsonDocument.toJson());
+        datei.close();
+        delete q;
+    }
+}
 void travelAgencyUI::on_saveData_clicked()
 {
-    //    if(bookings.empty())
-    //    {
-    //        QMessageBox* message = new QMessageBox;
-    //        message->about(this,QString::fromStdString("No booking"),QString::fromStdString("No booking given"));
-    //        delete message;
-    //    }
-    //    else{QJsonDocument jsonDocument;
-    //        QJsonArray flugBuchung,hotelBuchung,autoBuchung,buchungen;
-    //        QJsonObject list;
-    //        for(auto &b : bookings){
-    //            if(b->getType().back()=='F')
-    //            {
-    //                QJsonObject flight;
-    //                vector<string> detail = b->getDetails();
-    //                flight["airline"] = QString::fromStdString(detail[2]);
-    //                flight["fromDate"] = QString::fromStdString(b->getFromDate());
-    //                flight["fromDest"] = QString::fromStdString(detail[0]);
-    //                flight["id"] = QString::fromStdString(to_string(b->getId()));
-    //                flight["price"] = stoi(detail[3]);
-    //                flight["toDate"] = QString::fromStdString(b->getToDate());
-    //                flight["toDes"] = QString::fromStdString(detail[1]);
-    //                flugBuchung.push_back(flight);
-    //            }
-    //            if(b->getType().back()=='R')
-    //            {
-    //                QJsonObject car;
-    //                vector<string> detail = b->getDetails();
-    //                car["company"] = QString::fromStdString(detail[2]);
-    //                car["fromDate"] = QString::fromStdString(b->getFromDate());
-    //                car["pickupLocation"] = QString::fromStdString(detail[0]);
-    //                car["id"] = QString::fromStdString(to_string(b->getId()));
-    //                car["price"] = stoi(detail[3]);
-    //                car["returnLocation"] = QString::fromStdString(detail[1]);
-    //                car["toDate"] = QString::fromStdString(b->getToDate());
-    //                autoBuchung.push_back(car);
-
-    //            }
-    //            if(b->getType().back()=='H')
-    //            {
-    //                QJsonObject hotel;
-    //                vector<string> detail = b->getDetails();
-    //                hotel["fromDate"] = QString::fromStdString(b->getFromDate());
-    //                hotel["hotel"] = QString::fromStdString(detail[0]);
-    //                hotel["id"] = QString::fromStdString(to_string(b->getId()));
-    //                hotel["price"] = stoi(detail[2]);
-    //                hotel["toDate"] = QString::fromStdString(b->getToDate());
-    //                hotel["town"] = QString::fromStdString(detail[1]);
-    //                hotelBuchung.push_back(hotel);
-    //            }
-    //        }
-    //        list["Flugbuchungen"] = flugBuchung;
-
-    //        list["Mietwagenreservierungen"] = autoBuchung;
-
-    //        list["Hotelbuchungen"] = hotelBuchung;
-    //        buchungen.push_back(list);
-    //        jsonDocument.setArray(buchungen);
-    //        QFileDialog* q = new QFileDialog;
-    //        QString name = q->getSaveFileName(this);
-    //        QFile datei(name);
-    //        if(!datei.open(QIODevice::ReadWrite))
-    //            std::cerr<<"Datei konnte nicht geoeffnet werden"<<endl;
-    //        else
-    //            cout<<"File opened"<<endl;
-    //        datei.resize(0);
-    //        datei.write(jsonDocument.toJson());
-    //        datei.close();
-    //        delete q;
-    //    }
 }
 
 void travelAgencyUI::setTravelAgency(TravelAgency *newTravelAgency)
@@ -602,5 +606,27 @@ void travelAgencyUI::on_readAirport_clicked()
     readJsonFile(fileName.toStdString());
 
     delete q;
+}
+
+
+void travelAgencyUI::on_saveJsonButton_clicked()
+{
+    QSharedPointer<SaveJson> jsonPopup(new SaveJson);
+    jsonPopup->show();
+    jsonPopup->exec();
+    SortFunktor sortFunktor = SortFunktor(jsonPopup->getPara());
+    std::sort(bookings.begin(),bookings.end(),sortFunktor);
+    saveToJson();
+}
+
+void travelAgencyUI::on_addCustomer_clicked()
+{
+    unique_ptr<idInput> customerNameInput = make_unique<idInput>();
+    customerNameInput->show();
+    customerNameInput->exec();
+    allCustomers.back();
+    ´
+    string customerName = customerNameInput->getSavedCustomerName();
+    shared_ptr<Customer> newCustomer = make_shared<Customer>(id,customerName);
 }
 

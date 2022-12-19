@@ -41,16 +41,30 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="Customer">
+      <widget class="QPushButton" name="readAirport">
        <property name="text">
-        <string>Customer</string>
+        <string>Read Airport</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="readAirport">
+      <widget class="QPushButton" name="Customer">
        <property name="text">
-        <string>Read Airport</string>
+        <string>Find Customer</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="addCustomer">
+       <property name="text">
+        <string>Add Customer</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveJsonButton">
+       <property name="text">
+        <string>Save To Json</string>
        </property>
       </widget>
      </item>
@@ -81,10 +95,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>270</x>
       <y>340</y>
       <width>286</width>
-      <height>264</height>
+      <height>321</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -197,7 +211,7 @@
         <x>10</x>
         <y>10</y>
         <width>264</width>
-        <height>215</height>
+        <height>271</height>
        </rect>
       </property>
       <row>
@@ -269,8 +283,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>610</y>
+      <x>330</x>
+      <y>680</y>
       <width>166</width>
       <height>36</height>
      </rect>

@@ -20,6 +20,9 @@ public:
 
     void setSavedID(int newSavedID);
 
+    std::string getSavedCustomerName() const;
+    void setSavedCustomerName(const std::string &newSavedCustomerName);
+
 private slots:
 
 
@@ -28,6 +31,7 @@ private slots:
 private:
     Ui::idInput *ui;
     int savedID;
+    std::string savedCustomerName;
 };
 
 #endif // IDINPUT_H

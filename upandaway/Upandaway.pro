@@ -19,6 +19,8 @@ SOURCES += \
         myqtablewidgetitem.cpp \
         popup.cpp \
         rentalcarreservation.cpp \
+        savejson.cpp \
+        sortfunktor.cpp \
         travel.cpp \
         travelagency.cpp \
         travelagencyui.cpp
@@ -35,6 +37,8 @@ HEADERS += \
     myqtablewidgetitem.h \
     popup.h \
     rentalcarreservation.h \
+    savejson.h \
+    sortfunktor.h \
     travel.h \
     travelagency.h \
     travelagencyui.h
@@ -43,5 +47,6 @@ FORMS += \
     Customer.ui \
     idinput.ui \
     popup.ui \
+    savejson.ui \
     travelagencyui.ui
 

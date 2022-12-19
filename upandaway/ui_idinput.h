@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'idinput.ui'
 **
-** Created by: Qt User Interface Compiler version 6.2.2
+** Created by: Qt User Interface Compiler version 6.4.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -36,21 +36,21 @@ public:
     void setupUi(QDialog *idInput)
     {
         if (idInput->objectName().isEmpty())
-            idInput->setObjectName(QString::fromUtf8("idInput"));
+            idInput->setObjectName("idInput");
         idInput->resize(259, 120);
         verticalLayout_2 = new QVBoxLayout(idInput);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName("verticalLayout");
         label = new QLabel(idInput);
-        label->setObjectName(QString::fromUtf8("label"));
+        label->setObjectName("label");
         label->setScaledContents(true);
         label->setWordWrap(true);
 
         verticalLayout->addWidget(label);
 
         lineEdit = new QLineEdit(idInput);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setObjectName("lineEdit");
         lineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
         verticalLayout->addWidget(lineEdit);
@@ -60,14 +60,14 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName("horizontalLayout");
         ok = new QPushButton(idInput);
-        ok->setObjectName(QString::fromUtf8("ok"));
+        ok->setObjectName("ok");
 
         horizontalLayout->addWidget(ok);
 
         abbrechen = new QPushButton(idInput);
-        abbrechen->setObjectName(QString::fromUtf8("abbrechen"));
+        abbrechen->setObjectName("abbrechen");
 
         horizontalLayout->addWidget(abbrechen);
 
@@ -86,7 +86,7 @@ public:
     void retranslateUi(QDialog *idInput)
     {
         idInput->setWindowTitle(QCoreApplication::translate("idInput", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("idInput", "Buchungs-ID:", nullptr));
+        label->setText(QCoreApplication::translate("idInput", "ID or Name", nullptr));
         ok->setText(QCoreApplication::translate("idInput", "OK", nullptr));
         abbrechen->setText(QCoreApplication::translate("idInput", "Abbrechen", nullptr));
     } // retranslateUi

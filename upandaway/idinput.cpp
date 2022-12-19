@@ -19,9 +19,19 @@ void idInput::on_ok_clicked()
 
 
     setSavedID(ui->lineEdit->text().toInt());
-
+    setSavedCustomerName(ui->lineEdit->text().toStdString());
 
     close();
+}
+
+std::string idInput::getSavedCustomerName() const
+{
+    return savedCustomerName;
+}
+
+void idInput::setSavedCustomerName(const std::string &newSavedCustomerName)
+{
+    savedCustomerName = newSavedCustomerName;
 }
 
 void idInput::setSavedID(int newSavedID)

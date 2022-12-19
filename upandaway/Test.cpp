@@ -11,12 +11,12 @@ void Test::test_case1()
 
         if(b->getType()=="R")
         {
-            if(b->getDetails().at(5)=="Avis\r"){
+            if(b->getDetails().at(5)=="Avis"){
                 countAvis++;
             }
         }
         if (b->getType()=="F") {
-            if(b->getDetails().at(7)=="United Airlines\r")
+            if(b->getDetails().at(7)=="United Airlines")
                 countUA++;
         }
         if(b->getPrice()>=1000.0)

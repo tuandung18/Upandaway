@@ -34,8 +34,10 @@ public:
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *readFile;
-    QPushButton *Customer;
     QPushButton *readAirport;
+    QPushButton *Customer;
+    QPushButton *addCustomer;
+    QPushButton *saveJsonButton;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_3;
     QWidget *layoutWidget2;
@@ -94,15 +96,25 @@ public:
 
         verticalLayout->addWidget(readFile);
 
+        readAirport = new QPushButton(layoutWidget);
+        readAirport->setObjectName("readAirport");
+
+        verticalLayout->addWidget(readAirport);
+
         Customer = new QPushButton(layoutWidget);
         Customer->setObjectName("Customer");
 
         verticalLayout->addWidget(Customer);
 
-        readAirport = new QPushButton(layoutWidget);
-        readAirport->setObjectName("readAirport");
+        addCustomer = new QPushButton(layoutWidget);
+        addCustomer->setObjectName("addCustomer");
 
-        verticalLayout->addWidget(readAirport);
+        verticalLayout->addWidget(addCustomer);
+
+        saveJsonButton = new QPushButton(layoutWidget);
+        saveJsonButton->setObjectName("saveJsonButton");
+
+        verticalLayout->addWidget(saveJsonButton);
 
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName("layoutWidget1");
@@ -118,7 +130,7 @@ public:
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         tabWidget = new QTabWidget(centralwidget);
         tabWidget->setObjectName("tabWidget");
-        tabWidget->setGeometry(QRect(400, 340, 286, 264));
+        tabWidget->setGeometry(QRect(270, 340, 286, 321));
         tab = new QWidget();
         tab->setObjectName("tab");
         horizontalLayout = new QHBoxLayout(tab);
@@ -211,11 +223,11 @@ public:
         __qtablewidgetitem26->setFlags(Qt::ItemIsDragEnabled|Qt::ItemIsDropEnabled|Qt::ItemIsUserCheckable|Qt::ItemIsEnabled);
         tableWidget_5->setItem(5, 0, __qtablewidgetitem26);
         tableWidget_5->setObjectName("tableWidget_5");
-        tableWidget_5->setGeometry(QRect(10, 10, 264, 215));
+        tableWidget_5->setGeometry(QRect(10, 10, 264, 271));
         tabWidget->addTab(tab_3, QString());
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(460, 610, 166, 36));
+        pushButton->setGeometry(QRect(330, 680, 166, 36));
         layoutWidget3 = new QWidget(centralwidget);
         layoutWidget3->setObjectName("layoutWidget3");
         layoutWidget3->setGeometry(QRect(598, 11, 349, 38));
@@ -349,8 +361,10 @@ public:
     {
         travelAgencyUI->setWindowTitle(QCoreApplication::translate("travelAgencyUI", "MainWindow", nullptr));
         readFile->setText(QCoreApplication::translate("travelAgencyUI", "Read The File", nullptr));
-        Customer->setText(QCoreApplication::translate("travelAgencyUI", "Customer", nullptr));
         readAirport->setText(QCoreApplication::translate("travelAgencyUI", "Read Airport", nullptr));
+        Customer->setText(QCoreApplication::translate("travelAgencyUI", "Find Customer", nullptr));
+        addCustomer->setText(QCoreApplication::translate("travelAgencyUI", "Add Customer", nullptr));
+        saveJsonButton->setText(QCoreApplication::translate("travelAgencyUI", "Save To Json", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget_3->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("travelAgencyUI", "Value", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget_3->verticalHeaderItem(0);

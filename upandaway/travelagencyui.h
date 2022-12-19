@@ -51,6 +51,7 @@ public:
 
     void sort(int columm, QTableWidget* table);
 
+    void saveToJson();
 private slots:
     void on_readFile_clicked();
 
@@ -93,6 +94,10 @@ private slots:
     void on_pushButton_5_clicked();
 
     void on_readAirport_clicked();
+
+    void on_saveJsonButton_clicked();
+
+    void on_addCustomer_clicked();
 
 private:
     Ui::travelAgencyUI *ui;
