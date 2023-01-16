@@ -1,6 +1,7 @@
 #include "travelagencyui.h"
 #include "BookingsInput.h"
 #include "checks.h"
+#include "customersearch.h"
 #include "dialog.h"
 #include "savejson.h"
 #include "ui_travelagencyui.h"
@@ -352,18 +353,40 @@ void travelAgencyUI::saveToJson(){
         delete q;
     }
 }
+bool compareCustomer(shared_ptr<Customer> a, shared_ptr<Customer> b) { return (a->relaDistance<b->relaDistance);}
 
 void travelAgencyUI::customerSearch(QString customerName)
 {
-    for(auto c: allCustomers){
+    for(const auto &c: allCustomers){
         QString cmpName = QString::fromStdString(c->getName());
         int matrix[customerName.size()+1][cmpName.size()+1];
-        for(int i = 0; i<customerName.size()+1;i++){
-            for(int j = 0; j<cmpName.size()+1;j++){
+        matrix[0][0]=0;
+
+        for(int i = 1; i <=customerName.size();i++ )
+            matrix[i][0]=i;
+        for(int j = 1;j<=cmpName.size();j++)
+            matrix[0][j]=j;
+        for(int i = 1;i<=customerName.size();i++){
+            for(int j = 1; j<=cmpName.size();j++){
+                if(customerName.at(i-1) == cmpName.at(j-1)){
+                    matrix[i][j]=matrix[i-1][j-1];
+                }
+
+                else {
+                    int min = matrix[i-1][j-1] +1;
+                    int next = matrix[i][j-1]+1;
+                    int next2 = matrix[i-1][j]+1;
+                    if(next<min) min = next;
+                    if(next2<min) min = next2;
+                    matrix[i][j] = min;
+                }
 
             }
         }
+        double relativeDistance = matrix[customerName.size()][cmpName.size()] / (double)(customerName.size() + cmpName.size());
+        c->relaDistance = relativeDistance;
     }
+    std::sort(allCustomers.begin(),allCustomers.end(),compareCustomer);
 }
 void travelAgencyUI::on_saveData_clicked()
 {
@@ -401,6 +424,53 @@ shared_ptr<Customer> travelAgencyUI::findCustomer(long id)
     return nullptr;
 }
 
+
+void travelAgencyUI::on_customer_Name_clicked()
+{
+    idInput* id = new idInput;
+    id->show();
+    id->exec();
+
+    customerSearch( QString::fromStdString(id->getSavedCustomerName()));
+    for(auto c : allCustomers){
+        cout<<c->getName()<<setw(6)<<c->relaDistance<<endl;
+    }
+    CustomerSearch* customerSearch = new CustomerSearch;
+    customerSearch->setupTable(allCustomers);
+    customerSearch->show();
+    customerSearch->exec();
+
+    shared_ptr<Customer> customer;
+    for(auto c : allCustomers){
+        if(c->getName()==customerSearch->savedCustomName)
+            customer = c;
+    }
+    QTableWidget* tableWidget = ui->tableWidget;
+    tableWidget->clear();
+    tableWidget->setColumnCount(3);
+
+    int row = 0;
+    if(customer==nullptr)
+    {
+        QMessageBox* message = new QMessageBox;
+        message->about(this,QString::fromStdString("Customer not found"),QString::fromStdString("No customer with this name found"));
+
+        delete message;
+    }
+    else{
+    for(auto &t : customer->getTravelList())
+    {
+        tableWidget->insertRow(row);
+        tableWidget->setItem(row,0,new MyQTableWidgetItem(QString::fromStdString(to_string(t->getId()))));
+        tableWidget->setItem(row,1,new MyQTableWidgetItem(QString::fromStdString(t->soonestBooking()->getFromDate())));
+        tableWidget->setItem(row,2 ,new MyQTableWidgetItem(QString::fromStdString(t->latestBooking()->getToDate())));
+
+        row++;
+
+    }
+    }
+
+}
 
 
 
@@ -805,5 +875,6 @@ void travelAgencyUI::on_showChecks_clicked()
     checkTable->exec();
 
 }
+
 
 

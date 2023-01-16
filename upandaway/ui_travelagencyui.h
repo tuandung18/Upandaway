@@ -33,6 +33,7 @@ public:
     QVBoxLayout *verticalLayout;
     QPushButton *readFile;
     QPushButton *showChecks;
+    QPushButton *customer_Name;
     QPushButton *readAirport;
     QPushButton *Customer;
     QPushButton *addCustomer;
@@ -83,7 +84,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(640, 460, 168, 218));
+        layoutWidget->setGeometry(QRect(640, 460, 188, 244));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -98,6 +99,11 @@ public:
         showChecks->setObjectName("showChecks");
 
         verticalLayout->addWidget(showChecks);
+
+        customer_Name = new QPushButton(layoutWidget);
+        customer_Name->setObjectName("customer_Name");
+
+        verticalLayout->addWidget(customer_Name);
 
         readAirport = new QPushButton(layoutWidget);
         readAirport->setObjectName("readAirport");
@@ -370,6 +376,7 @@ public:
         travelAgencyUI->setWindowTitle(QCoreApplication::translate("travelAgencyUI", "MainWindow", nullptr));
         readFile->setText(QCoreApplication::translate("travelAgencyUI", "Read The File", nullptr));
         showChecks->setText(QCoreApplication::translate("travelAgencyUI", "Show checks", nullptr));
+        customer_Name->setText(QCoreApplication::translate("travelAgencyUI", "Find Customer With Name", nullptr));
         readAirport->setText(QCoreApplication::translate("travelAgencyUI", "Read Airport", nullptr));
         Customer->setText(QCoreApplication::translate("travelAgencyUI", "Find Customer", nullptr));
         addCustomer->setText(QCoreApplication::translate("travelAgencyUI", "Add Customer", nullptr));

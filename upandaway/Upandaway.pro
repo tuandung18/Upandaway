@@ -14,6 +14,7 @@ SOURCES += \
         booking.cpp \
         checks.cpp \
         customer.cpp \
+        customersearch.cpp \
         dialog.cpp \
         flightbooking.cpp \
         heap.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     booking.h \
     checks.h \
     customer.h \
+    customersearch.h \
     dialog.h \
     flightbooking.h \
     graph.h \
@@ -57,6 +59,7 @@ FORMS += \
     BookingsInput.ui \
     Customer.ui \
     checks.ui \
+    customersearch.ui \
     dialog.ui \
     idinput.ui \
     popup.ui \

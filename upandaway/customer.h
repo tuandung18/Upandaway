@@ -10,6 +10,7 @@ private:
     string name;
     vector<shared_ptr<Travel> > travelList;
 public:
+    double relaDistance;
     Customer(long id, string name);
     void addTravel(shared_ptr<Travel> travel);
     long getId() const;

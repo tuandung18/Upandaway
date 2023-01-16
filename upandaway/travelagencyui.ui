@@ -19,8 +19,8 @@
      <rect>
       <x>640</x>
       <y>460</y>
-      <width>168</width>
-      <height>218</height>
+      <width>188</width>
+      <height>244</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -44,6 +44,13 @@
       <widget class="QPushButton" name="showChecks">
        <property name="text">
         <string>Show checks</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="customer_Name">
+       <property name="text">
+        <string>Find Customer With Name</string>
        </property>
       </widget>
      </item>

@@ -116,6 +116,8 @@ private slots:
 
     void on_showChecks_clicked();
 
+    void on_customer_Name_clicked();
+
 private:
     Ui::travelAgencyUI *ui;
     vector<Airport*> airports;
