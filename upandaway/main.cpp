@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     travelAgencyUI travelAgencyUI;
     travelAgencyUI.show();
-//    Test t;
-//    QTest::qExec(&t);
+    Test t;
+    QTest::qExec(&t);
     return a.exec();
 }

@@ -12,7 +12,9 @@ SOURCES += \
         Test.cpp \
         airport.cpp \
         booking.cpp \
+        checks.cpp \
         customer.cpp \
+        dialog.cpp \
         flightbooking.cpp \
         heap.cpp \
         hotelbooking.cpp \
@@ -34,7 +36,9 @@ HEADERS += \
     Test.h \
     airport.h \
     booking.h \
+    checks.h \
     customer.h \
+    dialog.h \
     flightbooking.h \
     graph.h \
     heap.h \
@@ -52,6 +56,8 @@ HEADERS += \
 FORMS += \
     BookingsInput.ui \
     Customer.ui \
+    checks.ui \
+    dialog.ui \
     idinput.ui \
     popup.ui \
     savejson.ui \

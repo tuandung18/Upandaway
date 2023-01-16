@@ -41,6 +41,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="showChecks">
+       <property name="text">
+        <string>Show checks</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="readAirport">
        <property name="text">
         <string>Read Airport</string>
@@ -300,7 +307,7 @@
      <string>Update </string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -373,7 +380,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>

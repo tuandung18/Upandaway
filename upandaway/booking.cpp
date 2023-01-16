@@ -93,7 +93,7 @@ void Booking::setEndTime(int newEndTime)
     endTime = newEndTime;
 }
 
-vector<int> Booking::getPreviousBookingsID() const
+vector<int> *Booking::getPreviousBookingsID() const
 {
     return previousBookingsID;
 }
@@ -127,6 +127,16 @@ Booking::Booking(const string &type, int id, double price, const string &fromDat
 }
 
 void Booking::setFromDestination(const string &newFromDestination)
+{
+
+}
+
+string Booking::getToDestination() const
+{
+
+}
+
+string Booking::getFromDestination() const
 {
 
 }

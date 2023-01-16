@@ -32,6 +32,7 @@ public:
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *readFile;
+    QPushButton *showChecks;
     QPushButton *readAirport;
     QPushButton *Customer;
     QPushButton *addCustomer;
@@ -51,7 +52,7 @@ public:
     QWidget *tab_3;
     QTableWidget *tableWidget_5;
     QPushButton *pushButton;
-    QWidget *widget;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_5;
     QPushButton *pushButton_2;
@@ -60,7 +61,7 @@ public:
     QVBoxLayout *verticalLayout_4;
     QLineEdit *customerName;
     QTableWidget *tableWidget;
-    QWidget *widget1;
+    QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout_6;
     QHBoxLayout *horizontalLayout_6;
     QPushButton *pushButton_6;
@@ -92,6 +93,11 @@ public:
         readFile->setIconSize(QSize(16, 16));
 
         verticalLayout->addWidget(readFile);
+
+        showChecks = new QPushButton(layoutWidget);
+        showChecks->setObjectName("showChecks");
+
+        verticalLayout->addWidget(showChecks);
 
         readAirport = new QPushButton(layoutWidget);
         readAirport->setObjectName("readAirport");
@@ -230,25 +236,25 @@ public:
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(640, 340, 166, 36));
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(80, 420, 421, 260));
-        verticalLayout_2 = new QVBoxLayout(widget);
+        layoutWidget3 = new QWidget(centralwidget);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(80, 420, 421, 260));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget3);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName("horizontalLayout_5");
-        pushButton_2 = new QPushButton(widget);
+        pushButton_2 = new QPushButton(layoutWidget3);
         pushButton_2->setObjectName("pushButton_2");
 
         horizontalLayout_5->addWidget(pushButton_2);
 
-        pushButton_3 = new QPushButton(widget);
+        pushButton_3 = new QPushButton(layoutWidget3);
         pushButton_3->setObjectName("pushButton_3");
 
         horizontalLayout_5->addWidget(pushButton_3);
 
-        pushButton_5 = new QPushButton(widget);
+        pushButton_5 = new QPushButton(layoutWidget3);
         pushButton_5->setObjectName("pushButton_5");
 
         horizontalLayout_5->addWidget(pushButton_5);
@@ -258,14 +264,14 @@ public:
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName("verticalLayout_4");
-        customerName = new QLineEdit(widget);
+        customerName = new QLineEdit(layoutWidget3);
         customerName->setObjectName("customerName");
         customerName->setAlignment(Qt::AlignCenter);
         customerName->setReadOnly(true);
 
         verticalLayout_4->addWidget(customerName);
 
-        tableWidget = new QTableWidget(widget);
+        tableWidget = new QTableWidget(layoutWidget3);
         if (tableWidget->columnCount() < 3)
             tableWidget->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
@@ -283,30 +289,30 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout_4);
 
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(80, 60, 421, 260));
-        verticalLayout_6 = new QVBoxLayout(widget1);
+        layoutWidget4 = new QWidget(centralwidget);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(80, 60, 421, 260));
+        verticalLayout_6 = new QVBoxLayout(layoutWidget4);
         verticalLayout_6->setObjectName("verticalLayout_6");
         verticalLayout_6->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName("horizontalLayout_6");
-        pushButton_6 = new QPushButton(widget1);
+        pushButton_6 = new QPushButton(layoutWidget4);
         pushButton_6->setObjectName("pushButton_6");
 
         horizontalLayout_6->addWidget(pushButton_6);
 
-        pushButton_7 = new QPushButton(widget1);
+        pushButton_7 = new QPushButton(layoutWidget4);
         pushButton_7->setObjectName("pushButton_7");
 
         horizontalLayout_6->addWidget(pushButton_7);
 
-        pushButton_8 = new QPushButton(widget1);
+        pushButton_8 = new QPushButton(layoutWidget4);
         pushButton_8->setObjectName("pushButton_8");
 
         horizontalLayout_6->addWidget(pushButton_8);
 
-        pushButton_9 = new QPushButton(widget1);
+        pushButton_9 = new QPushButton(layoutWidget4);
         pushButton_9->setObjectName("pushButton_9");
 
         horizontalLayout_6->addWidget(pushButton_9);
@@ -316,14 +322,14 @@ public:
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName("verticalLayout_5");
-        travelID = new QLineEdit(widget1);
+        travelID = new QLineEdit(layoutWidget4);
         travelID->setObjectName("travelID");
         travelID->setAlignment(Qt::AlignCenter);
         travelID->setReadOnly(true);
 
         verticalLayout_5->addWidget(travelID);
 
-        tableWidget_2 = new QTableWidget(widget1);
+        tableWidget_2 = new QTableWidget(layoutWidget4);
         if (tableWidget_2->columnCount() < 4)
             tableWidget_2->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
@@ -363,6 +369,7 @@ public:
     {
         travelAgencyUI->setWindowTitle(QCoreApplication::translate("travelAgencyUI", "MainWindow", nullptr));
         readFile->setText(QCoreApplication::translate("travelAgencyUI", "Read The File", nullptr));
+        showChecks->setText(QCoreApplication::translate("travelAgencyUI", "Show checks", nullptr));
         readAirport->setText(QCoreApplication::translate("travelAgencyUI", "Read Airport", nullptr));
         Customer->setText(QCoreApplication::translate("travelAgencyUI", "Find Customer", nullptr));
         addCustomer->setText(QCoreApplication::translate("travelAgencyUI", "Add Customer", nullptr));

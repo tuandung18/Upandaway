@@ -18,7 +18,7 @@ protected:
     string toDate;
     QList<shared_ptr<Booking>> adjList;
     int endTime;
-    vector<int> previousBookingsID;
+    vector<int>* previousBookingsID = new vector<int>;
 
 
 public:
@@ -29,6 +29,9 @@ public:
     virtual string showDetails() = 0;
     virtual vector<string> getDetails() = 0;
     virtual void setFromDestination(const string &newFromDestination);
+    virtual string getToDestination() const;
+    virtual string getFromDestination() const;
+
     virtual void setToDestination(const string &newToDestination) ;
     virtual void setAirline(const string &newAirline) ;
 
@@ -63,7 +66,7 @@ public:
     QList<shared_ptr<Booking> > getAdjList() const;
     int getEndTime() const;
     void setEndTime(int newEndTime);
-    vector<int> getPreviousBookingsID() const;
+    vector<int> *getPreviousBookingsID() const;
 };
 
 #endif // BOOKING_H

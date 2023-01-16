@@ -1,5 +1,7 @@
 #include "travelagencyui.h"
 #include "BookingsInput.h"
+#include "checks.h"
+#include "dialog.h"
 #include "savejson.h"
 #include "ui_travelagencyui.h"
 #include <flightbooking.h>
@@ -131,10 +133,12 @@ string travelAgencyUI::readFile(string sourceName)
             }
             shared_ptr<Booking> nextBooking = bookings.back();
 
-
+            /*
+             * add previous bookings of one booking to its data
+             * */
             while(currentIndex != daten.size() -1 ){
                 currentIndex++;
-                nextBooking->getPreviousBookingsID().push_back(stoi(daten.at(currentIndex)));
+                nextBooking->getPreviousBookingsID()->push_back(stoi(daten.at(currentIndex)));
             }
 
             /*
@@ -172,15 +176,15 @@ string travelAgencyUI::readFile(string sourceName)
     vector<VertexData> toBeSorted;
     for(const auto &t : allTravels){
 
-        for(const auto &b : t->getTravelBookings()){
+        for(const auto &b : *t->getTravelBookings()){
             t->bookingGraph->insertVertex(b->getId(),b);
-            for(auto pb : b->getPreviousBookingsID()){
+            for(auto pb : *b->getPreviousBookingsID()){
                 shared_ptr<Booking> previosBooking = findBooking(pb);
+                t->bookingGraph->setPredecessor(b->getId(),pb);
                 t->bookingGraph->insertVertex(pb,previosBooking);
                 t->bookingGraph->insertEdge(pb,b->getId());
             }
 
-        t->bookingGraph->printAdjMatrix();
         }
 
 
@@ -188,22 +192,25 @@ string travelAgencyUI::readFile(string sourceName)
         /*
          * set end time after dfs to each booking
          * */
-        for(auto b : t->getTravelBookings())
+        for(auto b : *t->getTravelBookings())
             b->setEndTime(t->bookingGraph->getEnd(b->getId()));
         /*
          * sort the bookings in travelBookings list
          * according to their endtime
          * */
         shared_ptr<Booking> tempSort=nullptr;
-        for(int i=0;i<t->getTravelBookings().size();i++){
-            for(int j=i+1; j<t->getTravelBookings().size();j++){
-                if(t->getTravelBookings().at(j)->getEndTime()<t->getTravelBookings().at(i)->getEndTime()){
-                    tempSort = t->getTravelBookings().at(i);
-                    t->getTravelBookings().at(i)=t->getTravelBookings().at(j);
-                    t->getTravelBookings().at(j)= tempSort;
-                }
+        for(int i=0;i<t->getTravelBookings()->size()-1;i++){
+            for(int j=0; j<t->getTravelBookings()->size()-i-1;j++){
+                if(t->getTravelBookings()->at(j)->getEndTime()<t->getTravelBookings()->at(j+1)->getEndTime()){
+                    auto temp = t->getTravelBookings()->at(j);
+                    t->getTravelBookings()->at(j) = t->getTravelBookings()->at(j+1);
+                    t->getTravelBookings()->at(j+1) = temp;
+                   }
 
             }
+        }
+        for(const auto &b : *t->getTravelBookings()){
+            cout<<b->getEndTime()<<endl;
         }
     }
 
@@ -214,7 +221,7 @@ string travelAgencyUI::readFile(string sourceName)
             + to_string(countTravel) + " Reisen und "
             + to_string(countCustomer) + " Kunden angelegt. Der Kunde mit der ID 1 hat "
             + to_string(findCustomer(1)->getTravelList().size()) + " Reisen gebucht. Zur Reise mit der ID 17 gehören "
-            + to_string(findTravel(17)->getTravelBookings().size()) + " Buchungen."
+            + to_string(findTravel(17)->getTravelBookings()->size()) + " Buchungen."
             ;
     return result;
 }
@@ -345,6 +352,19 @@ void travelAgencyUI::saveToJson(){
         delete q;
     }
 }
+
+void travelAgencyUI::customerSearch(QString customerName)
+{
+    for(auto c: allCustomers){
+        QString cmpName = QString::fromStdString(c->getName());
+        int matrix[customerName.size()+1][cmpName.size()+1];
+        for(int i = 0; i<customerName.size()+1;i++){
+            for(int j = 0; j<cmpName.size()+1;j++){
+
+            }
+        }
+    }
+}
 void travelAgencyUI::on_saveData_clicked()
 {
 }
@@ -454,7 +474,7 @@ void travelAgencyUI::on_tableWidget_cellDoubleClicked(int row, int column)
 
         shared_ptr<Travel> travel = findTravel(travelID.toLong());
 
-        for(auto &b : travel->getTravelBookings())
+        for(auto &b : *travel->getTravelBookings())
         {
             tableWidget2->insertRow(bookingTableRow);
             tableWidget2->setItem(bookingTableRow ,0,new MyQTableWidgetItem(QString::fromStdString(to_string(b->getId()))));
@@ -579,7 +599,10 @@ void swap (QTableWidgetItem* row1, QTableWidgetItem* row2)
        *row2 = temp;
 
 }
+void swapBooking(shared_ptr<Booking> xp, shared_ptr<Booking> yp)
+{
 
+}
 void travelAgencyUI::sort(int columm, QTableWidget* table)
 {
     int i,j;
@@ -770,4 +793,17 @@ void travelAgencyUI::on_addBooking_clicked()
 
 
 }
+
+
+void travelAgencyUI::on_showChecks_clicked()
+{
+    QSharedPointer<Dialog> checkTable (new Dialog);
+    for(auto t : allTravels){
+        checkTable->addItem(t);
+    }
+    checkTable->show();
+    checkTable->exec();
+
+}
+
 

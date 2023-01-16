@@ -24,9 +24,9 @@ public:
     // Booking interface
     public:
     std::vector<string> getDetails() override;
-    string getFromDestination() const;
+    string getFromDestination() const override;
     void setFromDestination(const string &newFromDestination) override;
-    string getToDestination() const;
+    string getToDestination() const override;
     void setToDestination(const string &newToDestination) override;
     string getAirline() const;
     void setAirline(const string &newAirline) override;

@@ -64,6 +64,7 @@ public:
     void sort(int columm, QTableWidget* table);
 
     void saveToJson();
+    void customerSearch(QString customerName);
 private slots:
     void on_readFile_clicked();
 
@@ -112,6 +113,8 @@ private slots:
     void on_addCustomer_clicked();
 
     void on_addBooking_clicked();
+
+    void on_showChecks_clicked();
 
 private:
     Ui::travelAgencyUI *ui;
