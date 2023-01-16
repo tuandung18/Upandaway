@@ -31,7 +31,17 @@ class travelAgencyUI : public QMainWindow
 public:
     explicit travelAgencyUI(QWidget *parent = nullptr);
     ~travelAgencyUI();
+    /**
+     * @brief readJsonFile: function to read in a json containing customers's data.
+     * It will convert the file to utf-8 format.
+     * @param sourceName name of the json file
+     */
     void readJsonFile(string sourceName);
+    /**
+     * @brief readFile: function to read in a normal txt file
+     * @param sourceName: name of the file
+     * @return
+     */
     string readFile(string sourceName);
     void readBinaryFile(string sourceName);
     const vector<shared_ptr<Booking>> &getBookings() const;
@@ -41,7 +51,6 @@ public:
     shared_ptr<Booking> findBooking(long id);
     shared_ptr<Travel> findTravel(long id);
     shared_ptr<Customer> findCustomer(long id);
-    void setAirportName(FlightBooking* f, QMultiMap<QString, Airport *> map);
     int countF=0, countH=0, countR=0, countTravel = 0, countCustomer = 0;
     double priceF=0.0,priceH=0.0,priceR=0.0;
     long actualTravelID=0, actualBookingID = 0;

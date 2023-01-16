@@ -58,6 +58,7 @@ SOURCES       = BookingsInput.cpp \
 		booking.cpp \
 		customer.cpp \
 		flightbooking.cpp \
+		heap.cpp \
 		hotelbooking.cpp \
 		idinput.cpp \
 		main.cpp \
@@ -80,6 +81,7 @@ OBJECTS       = BookingsInput.o \
 		booking.o \
 		customer.o \
 		flightbooking.o \
+		heap.o \
 		hotelbooking.o \
 		idinput.o \
 		main.o \
@@ -242,12 +244,15 @@ DIST          = ../../../Qt/6.4.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/6.4.1/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt/6.4.1/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/6.4.1/gcc_64/mkspecs/features/lex.prf \
-		Upandaway.pro BookingsInput.h \
+		Upandaway.pro Algorithmen.h \
+		BookingsInput.h \
 		Test.h \
 		airport.h \
 		booking.h \
 		customer.h \
 		flightbooking.h \
+		graph.h \
+		heap.h \
 		hotelbooking.h \
 		idinput.h \
 		myqtablewidgetitem.h \
@@ -263,6 +268,7 @@ DIST          = ../../../Qt/6.4.1/gcc_64/mkspecs/features/spec_pre.prf \
 		booking.cpp \
 		customer.cpp \
 		flightbooking.cpp \
+		heap.cpp \
 		hotelbooking.cpp \
 		idinput.cpp \
 		main.cpp \
@@ -601,8 +607,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/6.4.1/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents BookingsInput.h Test.h airport.h booking.h customer.h flightbooking.h hotelbooking.h idinput.h myqtablewidgetitem.h popup.h rentalcarreservation.h savejson.h sortfunktor.h travel.h travelagency.h travelagencyui.h $(DISTDIR)/
-	$(COPY_FILE) --parents BookingsInput.cpp Test.cpp airport.cpp booking.cpp customer.cpp flightbooking.cpp hotelbooking.cpp idinput.cpp main.cpp myqtablewidgetitem.cpp popup.cpp rentalcarreservation.cpp savejson.cpp sortfunktor.cpp travel.cpp travelagency.cpp travelagencyui.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Algorithmen.h BookingsInput.h Test.h airport.h booking.h customer.h flightbooking.h graph.h heap.h hotelbooking.h idinput.h myqtablewidgetitem.h popup.h rentalcarreservation.h savejson.h sortfunktor.h travel.h travelagency.h travelagencyui.h $(DISTDIR)/
+	$(COPY_FILE) --parents BookingsInput.cpp Test.cpp airport.cpp booking.cpp customer.cpp flightbooking.cpp heap.cpp hotelbooking.cpp idinput.cpp main.cpp myqtablewidgetitem.cpp popup.cpp rentalcarreservation.cpp savejson.cpp sortfunktor.cpp travel.cpp travelagency.cpp travelagencyui.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents BookingsInput.ui Customer.ui idinput.ui popup.ui savejson.ui travelagencyui.ui $(DISTDIR)/
 
 
@@ -1036,12 +1042,14 @@ moc_Test.cpp: Test.h \
 		airport.h \
 		customer.h \
 		travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDateEdit \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qdatetimeedit.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
+		Algorithmen.h \
 		popup.h \
 		travelagency.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDialog \
@@ -1590,6 +1598,7 @@ moc_travelagencyui.cpp: travelagencyui.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qstringbuilder.h \
 		customer.h \
 		travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qdatetime.h \
@@ -1689,6 +1698,7 @@ moc_travelagencyui.cpp: travelagencyui.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h \
+		Algorithmen.h \
 		popup.h \
 		travelagency.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDialog \
@@ -2239,12 +2249,14 @@ Test.o: Test.cpp Test.h \
 		airport.h \
 		customer.h \
 		travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDateEdit \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qdatetimeedit.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
+		Algorithmen.h \
 		popup.h \
 		travelagency.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDialog \
@@ -2492,6 +2504,7 @@ booking.o: booking.cpp booking.h \
 
 customer.o: customer.cpp customer.h \
 		travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qdatetime.h \
@@ -2635,7 +2648,8 @@ customer.o: customer.cpp customer.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/QTransform \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
-		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h
+		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h \
+		Algorithmen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o customer.o customer.cpp
 
 flightbooking.o: flightbooking.cpp flightbooking.h \
@@ -2784,6 +2798,9 @@ flightbooking.o: flightbooking.cpp flightbooking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o flightbooking.o flightbooking.cpp
+
+heap.o: heap.cpp heap.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heap.o heap.cpp
 
 hotelbooking.o: hotelbooking.cpp hotelbooking.h \
 		booking.h \
@@ -3224,6 +3241,7 @@ main.o: main.cpp ../../../Qt/6.4.1/gcc_64/include/QtTest/qtestcase.h \
 		airport.h \
 		customer.h \
 		travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDateEdit \
@@ -3282,6 +3300,7 @@ main.o: main.cpp ../../../Qt/6.4.1/gcc_64/include/QtTest/qtestcase.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h \
+		Algorithmen.h \
 		popup.h \
 		travelagency.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDialog \
@@ -4244,6 +4263,7 @@ sortfunktor.o: sortfunktor.cpp sortfunktor.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sortfunktor.o sortfunktor.cpp
 
 travel.o: travel.cpp travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qdatetime.h \
@@ -4387,7 +4407,8 @@ travel.o: travel.cpp travel.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/QTransform \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
-		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h
+		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h \
+		Algorithmen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o travel.o travel.cpp
 
 travelagency.o: travelagency.cpp travelagency.h \
@@ -4589,6 +4610,7 @@ travelagencyui.o: travelagencyui.cpp travelagencyui.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qstringbuilder.h \
 		customer.h \
 		travel.h \
+		graph.h \
 		booking.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QDate \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qdatetime.h \
@@ -4688,6 +4710,7 @@ travelagencyui.o: travelagencyui.cpp travelagencyui.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qnativeinterface.h \
 		../../../Qt/6.4.1/gcc_64/include/QtGui/qvalidator.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qregularexpression.h \
+		Algorithmen.h \
 		popup.h \
 		travelagency.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QDialog \
@@ -4750,7 +4773,6 @@ travelagencyui.o: travelagencyui.cpp travelagencyui.h \
 		sortfunktor.h \
 		ui_travelagencyui.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/QVariant \
-		../../../Qt/6.4.1/gcc_64/include/QtGui/QAction \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QApplication \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qapplication.h \
 		../../../Qt/6.4.1/gcc_64/include/QtCore/qcoreapplication.h \
@@ -4781,20 +4803,19 @@ travelagencyui.o: travelagencyui.cpp travelagencyui.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QHeaderView \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qheaderview.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QLineEdit \
-		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QMenu \
-		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qmenu.h \
-		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QMenuBar \
-		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qmenubar.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QPushButton \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QStatusBar \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qstatusbar.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QTabWidget \
+		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QToolBar \
+		../../../Qt/6.4.1/gcc_64/include/QtWidgets/qtoolbar.h \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QVBoxLayout \
 		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QWidget \
 		myqtablewidgetitem.h \
-		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QTableWidgetItem
+		../../../Qt/6.4.1/gcc_64/include/QtWidgets/QTableWidgetItem \
+		heap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o travelagencyui.o travelagencyui.cpp
 
 moc_BookingsInput.o: moc_BookingsInput.cpp 

@@ -14,6 +14,7 @@ SOURCES += \
         booking.cpp \
         customer.cpp \
         flightbooking.cpp \
+        heap.cpp \
         hotelbooking.cpp \
         idinput.cpp \
         main.cpp \
@@ -28,12 +29,15 @@ SOURCES += \
 
 
 HEADERS += \
+    Algorithmen.h \
     BookingsInput.h \
     Test.h \
     airport.h \
     booking.h \
     customer.h \
     flightbooking.h \
+    graph.h \
+    heap.h \
     hotelbooking.h \
     idinput.h \
     myqtablewidgetitem.h \

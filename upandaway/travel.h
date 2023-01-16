@@ -1,8 +1,9 @@
 #ifndef TRAVEL_H
 #define TRAVEL_H
 #include <memory>
-
+#include <graph.h>
 #include "booking.h"
+#include <Algorithmen.h>
 class Travel
 {
 private:
@@ -21,6 +22,9 @@ public:
 
     shared_ptr<Booking>soonestBooking();
     shared_ptr<Booking>latestBooking();
+
+    Graph<shared_ptr<Booking>,110>* bookingGraph = new Graph<shared_ptr<Booking>,110>;
+
 };
 
 #endif // TRAVEL_H

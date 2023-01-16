@@ -1,8 +1,10 @@
 #ifndef BOOKING_H
 #define BOOKING_H
 #include <string>
+#include <iostream>
 #include <QDate>
 #include <QDateEdit>
+#include <QList>
 using namespace std;
 
 class Booking
@@ -14,6 +16,11 @@ protected:
     double price;
     string fromDate;
     string toDate;
+    QList<shared_ptr<Booking>> adjList;
+    int endTime;
+    vector<int> previousBookingsID;
+
+
 public:
     Booking();
     Booking(int id, double price, const string &fromDate, const string &toDate);
@@ -35,7 +42,8 @@ public:
     virtual void setStartAirport(const QString &newStartAirport);
     virtual void setEndAirport(const QString &newEndAirport);
 
-
+    void extracted();
+    void printAdjList();
 
     long getId() const;
     void setId(long newId);
@@ -52,6 +60,10 @@ public:
     void setType(const string &newType);
     long getTravelID() const;
     void setTravelID(long newTravelID);
+    QList<shared_ptr<Booking> > getAdjList() const;
+    int getEndTime() const;
+    void setEndTime(int newEndTime);
+    vector<int> getPreviousBookingsID() const;
 };
 
 #endif // BOOKING_H

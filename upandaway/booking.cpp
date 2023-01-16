@@ -1,4 +1,5 @@
 #include "booking.h"
+#include <ostream>
 
 long Booking::getId() const
 {
@@ -77,6 +78,28 @@ void Booking::setTravelID(long newTravelID)
     travelID = newTravelID;
 }
 
+QList<shared_ptr<Booking> > Booking::getAdjList() const
+{
+    return adjList;
+}
+
+int Booking::getEndTime() const
+{
+    return endTime;
+}
+
+void Booking::setEndTime(int newEndTime)
+{
+    endTime = newEndTime;
+}
+
+vector<int> Booking::getPreviousBookingsID() const
+{
+    return previousBookingsID;
+}
+
+
+
 Booking::Booking()
 {
 
@@ -150,5 +173,13 @@ void Booking::setStartAirport(const QString &newStartAirport)
 
 void Booking::setEndAirport(const QString &newEndAirport)
 {
+
+}
+
+void Booking::printAdjList()
+{
+ for(auto b : adjList){
+     cout<<b->getId()<<endl;
+ }
 
 }

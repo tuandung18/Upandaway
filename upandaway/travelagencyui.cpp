@@ -9,6 +9,8 @@
 #include<myqtablewidgetitem.h>
 #include<qstring.h>
 #include <memory>
+#include <Algorithmen.h>
+#include <heap.h>
 
 #define bType daten[0]
 #define bId stoi(daten[1])
@@ -23,7 +25,12 @@
 #define country a[QString("iso_country")].toString()
 #define muni a[QString("municipality")].toString()
 #define code a[QString("iata_code")].toString()
-
+struct VertexData
+{
+    int vertexNumber;
+    std::string vertexName;
+    int endTime;
+};
 travelAgencyUI::travelAgencyUI(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::travelAgencyUI)
@@ -97,18 +104,14 @@ string travelAgencyUI::readFile(string sourceName)
         if(findBooking(bId)==nullptr) //check if booking with this id exists
         {
             string typ =bType;
-            if(typ=="H" && numberOfCol!=10)
-                throw invalid_argument("Number of attributes is not enough at line " + to_string(lineNumber));
-            else if( (typ=="F" || typ=="R") && numberOfCol!=11)
-            {
-                throw invalid_argument("Number of attributes is not enough at line " + to_string(lineNumber));
-            }
+            int currentIndex = 0;
             if(typ=="F"){
 
                 shared_ptr<Booking> booking =  make_shared<FlightBooking> (bType, bId, bPrice, bFromDate, bToDate, bTravelID,daten[8],daten[9],daten[10]);
                 bookings.push_back(booking);
                 countF++;
                 priceF+=booking->getPrice();
+                currentIndex = 10;
 
 
             }
@@ -117,12 +120,21 @@ string travelAgencyUI::readFile(string sourceName)
                 bookings.push_back(booking);
                 countH++;
                 priceH+=booking->getPrice();
+                currentIndex = 9;
             }
             if(typ=="R"){
                 shared_ptr<Booking> booking = make_shared<RentalCarReservation> (bType, bId, bPrice, bFromDate, bToDate, bTravelID, daten[8],daten[9],daten[10]);
                 bookings.push_back(booking);
                 countR++;
                 priceR+=booking->getPrice();
+                currentIndex= 10;
+            }
+            shared_ptr<Booking> nextBooking = bookings.back();
+
+
+            while(currentIndex != daten.size() -1 ){
+                currentIndex++;
+                nextBooking->getPreviousBookingsID().push_back(stoi(daten.at(currentIndex)));
             }
 
             /*
@@ -149,8 +161,52 @@ string travelAgencyUI::readFile(string sourceName)
 
         }
 
+
     }
     source.close();
+    /*
+     * create a directed graph for each travel
+     * and insert vertices and their edges
+     * and perform dfs for the graph
+     * */
+    vector<VertexData> toBeSorted;
+    for(const auto &t : allTravels){
+
+        for(const auto &b : t->getTravelBookings()){
+            t->bookingGraph->insertVertex(b->getId(),b);
+            for(auto pb : b->getPreviousBookingsID()){
+                shared_ptr<Booking> previosBooking = findBooking(pb);
+                t->bookingGraph->insertVertex(pb,previosBooking);
+                t->bookingGraph->insertEdge(pb,b->getId());
+            }
+
+        t->bookingGraph->printAdjMatrix();
+        }
+
+
+        depthFirstSearch(*t->bookingGraph);
+        /*
+         * set end time after dfs to each booking
+         * */
+        for(auto b : t->getTravelBookings())
+            b->setEndTime(t->bookingGraph->getEnd(b->getId()));
+        /*
+         * sort the bookings in travelBookings list
+         * according to their endtime
+         * */
+        shared_ptr<Booking> tempSort=nullptr;
+        for(int i=0;i<t->getTravelBookings().size();i++){
+            for(int j=i+1; j<t->getTravelBookings().size();j++){
+                if(t->getTravelBookings().at(j)->getEndTime()<t->getTravelBookings().at(i)->getEndTime()){
+                    tempSort = t->getTravelBookings().at(i);
+                    t->getTravelBookings().at(i)=t->getTravelBookings().at(j);
+                    t->getTravelBookings().at(j)= tempSort;
+                }
+
+            }
+        }
+    }
+
     string result =  "Es wurden " + to_string(countF) + " Flugbuchungen im Wert von " + to_string(priceF) + " Euro und "
             + to_string(countR) + " Mietwagenbuchungen im Wert von " + to_string(priceR) + " Euro und "
             + to_string(countH) + " Hotelreservierungen im Wert von "
@@ -325,10 +381,7 @@ shared_ptr<Customer> travelAgencyUI::findCustomer(long id)
     return nullptr;
 }
 
-void travelAgencyUI::setAirportName(FlightBooking *f, QMultiMap<QString,Airport*> map)
-{
 
-}
 
 
 void travelAgencyUI::on_Customer_clicked()
