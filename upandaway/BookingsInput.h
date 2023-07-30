@@ -7,7 +7,7 @@
 #include <QDialog>
 
 namespace Ui {
-class Bookingchoices;
+class BookingsInput;
 }
 
 class BookingsInput : public QDialog
@@ -31,7 +31,7 @@ private slots:
     void on_pushButton_clicked();
 
 private:
-    Ui::Bookingchoices *ui;
+    Ui::BookingsInput *ui;
     std::shared_ptr<FlightBooking> newFlight;
     std::shared_ptr<RentalCarReservation> newCar;
     std::shared_ptr<HotelBooking> newHotel;

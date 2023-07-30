@@ -1,6 +1,6 @@
 #include "BookingsInput.h"
 #include "flightbooking.h"
-#include "ui_bookingchoices.h"
+#include "ui_BookingsInput.h".h"
 #include <QString>
 #include <iostream>
 #define flightFromDate ui->tableWidget_5->item(1,0)->text().toStdString()
@@ -26,7 +26,7 @@
 
 BookingsInput::BookingsInput(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Bookingchoices)
+    ui(new Ui::BookingsInput)
 {
     ui->setupUi(this);
 }

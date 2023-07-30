@@ -802,7 +802,7 @@ void travelAgencyUI::on_addBooking_clicked()
 //    travelInput.show();
 //    travelInput.exec();
 //    travelInput.getSavedID();
-    QSharedPointer<BookingsInput> bookingInput(new BookingsInput);
+    shared_ptr<BookingsInput> bookingInput(new BookingsInput);
     bookingInput->show();
     bookingInput->exec();
 
